@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Dr Košarac | Holistička Stomatologija & Akupunktura Novi Sad",
+  title: "Dr Košarac | Akupunktura Novi Sad",
   description: "Spoj savremene stomatologije i tradicionalne kineske medicine u Novom Sadu. VedaPulse dijagnostika, akupunktura, ventuze i estetski tretmani lica.",
 };
 
@@ -25,9 +26,11 @@ export default function RootLayout({
   return (
     <html lang="sr">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white text-medical-dark`}>
-        {/* Ovde će ići <Navbar /> */}
+       
+        <Navbar />
         <main>{children}</main>
-        {/* Ovde će ići <Footer /> */}
+       
+
       </body>
     </html>
   );
