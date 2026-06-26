@@ -27,9 +27,6 @@ export default function Navbar() {
             <Link href="#usluge" className="hover:text-holistic-green transition-colors">
               Usluge
             </Link>
-            <Link href="#veda-pulse" className="hover:text-holistic-green transition-colors">
-              VedaPulse
-            </Link>
             <Link href="#kviz" className="hover:text-holistic-green transition-colors">
               Saznajte svoj balans
             </Link>
