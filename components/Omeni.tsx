@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useRef, useState } from "react";
 // Kad budeš imao pravu sliku u /public folderu, koristićeš next/image
 // import Image from "next/image"; 
@@ -18,11 +17,9 @@ export default function Omeni() {
       },
       { threshold: 0.2 } // Animacija kreće kad se vidi bar 20% sekcije
     );
-
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
-
     return () => observer.disconnect();
   }, []);
 
@@ -44,7 +41,7 @@ export default function Omeni() {
             <div className="relative w-full aspect-[4/5] max-w-md mx-auto md:max-w-none rounded-2xl overflow-hidden shadow-2xl">
               {/* Privremena slika dok doktorka ne pošalje svoju */}
               <img
-                src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=800&auto=format&fit=crop"
+                src="https://res.cloudinary.com/duomot4hp/image/upload/v1782817691/ChatGPT_Image_30._%D1%98%D1%83%D0%BD_2026._13_16_10_jsy4zc.png"
                 alt="Dr Košarac portret"
                 className="object-cover w-full h-full"
               />
@@ -68,11 +65,15 @@ export default function Omeni() {
             </h2>
             
             <p className="text-slate-600 mb-6 text-lg leading-relaxed">
-              Dobrodošli u ordinaciju gde se savremena nauka susreće sa mudrošću tradicionalne medicine. Moja misija nije samo lečenje simptoma, već pronalaženje pravog uzroka i vraćanje tela u njegovo prirodno, harmonično stanje.
+              Rođena sam u Splitu, gde sam završila osnovnu školu, a gimnaziju &quot;Svetozar Marković&quot; i Medicinski fakultet, smer stomatologija, završila sam u Novom Sadu 2006. godine. Svoje znanje sam dalje proširila 2009. godine diplomiravši Menadžment u zdravstvu na FON-u Univerziteta u Beogradu.
             </p>
             
+            <p className="text-slate-600 mb-6 leading-relaxed">
+              Put ka holističkom pristupu zdravlju nastavila sam 2021. godine, kada sam završila edukaciju iz akupunkture u međunarodnom udruženju Quanttes u Beogradu. Usavršavala sam se i kroz edukacije iz moksibustije, Gua Sha masaže i ventuza, a trenutno pohađam edukaciju iz nutricionizma kako bih svojim pacijentima pružila još celovitiju negu.
+            </p>
+
             <p className="text-slate-600 mb-10 leading-relaxed">
-              Kroz dugogodišnje iskustvo i primenu holističkih metoda, pomažem pacijentima da probude sopstvene mehanizme isceljenja. Vaše zdravlje je vaš najveći kapital, a moj zadatak je da vas vodim na putu ka dugoročnom blagostanju i vitalnosti.
+              I dalje aktivno radim kao stomatolog, a poslednjih pet godina i kao akupunkturolog — spajajući iskustvo savremene medicine sa mudrošću tradicionalnih metoda isceljenja.
             </p>
             
             {/* Potpis ili poseban detalj na dnu */}
@@ -80,12 +81,11 @@ export default function Omeni() {
               <div className="w-16 h-[2px] bg-red-600 rounded-full"></div>
               <div>
                 <span className="block font-bold text-xl text-medical-dark">Dr Košarac</span>
-                <span className="text-sm text-slate-500">Osnivač ordinacije</span>
+                <span className="text-sm text-slate-500">Stomatolog i akupunkturolog</span>
               </div>
             </div>
             
           </div>
-
         </div>
       </div>
     </section>
