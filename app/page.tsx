@@ -4,7 +4,7 @@ import Omeni from "@/components/Omeni";
 
 export default function Home() {
   return (
-    
+
     <main className="w-full overflow-hidden">
 
       {/* HERO SEKCIJA SA VIDEOM */}
@@ -39,7 +39,7 @@ export default function Home() {
           </h1>
 
           <p className="text-lg md:text-xl text-slate-200 mb-10 max-w-2xl drop-shadow-md">
-            Spoj tradicionalne medicine i savremene dijagnostike.
+            Spoj tradicionalne kineske medicine i savremene dijagnostike.
             Otkrijte koren problema i probudite prirodnu sposobnost tela da se samo isceli.
           </p>
 
@@ -57,13 +57,13 @@ export default function Home() {
             </Link>
 
             {/* Sekundarno dugme (Outline Crveno - Za više informacija) */}
-            <Link
-              href="#"
+            <a
+              href="tel:0638504589"
               className="flex items-center justify-center gap-2 bg-black/30 backdrop-blur-sm border-2 border-red-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-red-600 hover:text-white transition-all duration-300"
             >
               <Info size={20} />
-              Više informacija
-            </Link>
+               Više informacija
+            </a>
 
           </div>
         </div>

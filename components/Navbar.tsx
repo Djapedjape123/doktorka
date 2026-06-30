@@ -41,8 +41,8 @@ export default function Navbar() {
             <span className={`text-xl font-bold tracking-tight transition-colors duration-300 ${isScrolled ? "text-medical-dark" : "text-white"}`}>
               Dr Košarac
             </span>
-            <span className="text-xs font-medium uppercase tracking-widest text-holistic-green -mt-1">
-               Holistička Medicina
+            <span className="text-xs uppercase tracking-widest text-red-500 font-bold -mt-1">
+               Kineska Medicina
             </span>
           </Link>
 
