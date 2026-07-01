@@ -88,7 +88,7 @@ export default function Navbar() {
             <Link href="/kontakt" className={`transition-colors duration-300 hover:text-red-400 relative py-2 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-red-400 after:transition-all after:duration-300 ${isScrolled ? "text-black" : "text-white"}`}>
               Kontakt
             </Link>
-            <Link href="#cene" className={`transition-colors duration-300 hover:text-red-400 relative py-2 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-red-400 after:transition-all after:duration-300 ${isScrolled ? "text-black" : "text-white"}`}>
+            <Link href="/cene" className={`transition-colors duration-300 hover:text-red-400 relative py-2 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-red-400 after:transition-all after:duration-300 ${isScrolled ? "text-black" : "text-white"}`}>
               Cene
             </Link>
 

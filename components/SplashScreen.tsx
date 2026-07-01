@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 export default function SplashScreen() {
     const [loading, setLoading] = useState(true);
@@ -21,9 +22,11 @@ export default function SplashScreen() {
             className={`fixed inset-0 z-[9999] bg-white flex items-center justify-center transition-opacity duration-500 ${fadeOut ? "opacity-0 pointer-events-none" : "opacity-100"
                 }`}
         >
-            <img
+            <Image
                 src="https://res.cloudinary.com/duomot4hp/image/upload/v1782837198/ChatGPT_Image_30._%D1%98%D1%83%D0%BD_2026._18_40_41_cexbmh.png"
                 alt="Logo"
+                fill
+                loading="eager"
                 className="w-full h-full object-contain  sm:p-12 md:p-16"
             />
         </div>

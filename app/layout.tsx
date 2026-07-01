@@ -27,8 +27,9 @@ export default function RootLayout({
   return (
     <html lang="sr">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white text-medical-dark`}>
-        
+        {/* navbar */}
         <Navbar />
+       {/* logo loader  */}
         <SplashScreen />
         <main>{children}</main>
        
