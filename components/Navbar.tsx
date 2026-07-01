@@ -38,7 +38,7 @@ export default function Navbar() {
           
           {/* LOGO SEKCIJA */}
           <Link href="/" className="flex flex-col">
-            <span className={`text-xl font-bold tracking-tight transition-colors duration-300 ${isScrolled ? "text-medical-dark" : "text-white"}`}>
+            <span className={`text-xl font-bold tracking-tight transition-colors duration-300 ${isScrolled ? "text-medical-dark" : "text-red-500"}`}>
               Dr Košarac
             </span>
             <span className="text-xs uppercase tracking-widest text-red-500 font-bold -mt-1">
@@ -58,7 +58,7 @@ export default function Navbar() {
               
               {/* Padajući meni */}
               <div className="absolute left-0 mt-2 w-60 bg-white border border-slate-100 shadow-xl rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col py-2 overflow-hidden">
-                <Link href="#akupunktura" className="px-4 py-2.5 text-sm text-black hover:bg-red-50 hover:text-red-400 transition-colors">
+                <Link href="/akupunktura" className="px-4 py-2.5 text-sm text-black hover:bg-red-50 hover:text-red-400 transition-colors">
                   Akupunktura
                 </Link>
                 <Link href="#aurikuloakupunktura" className="px-4 py-2.5 text-sm text-black hover:bg-red-50 hover:text-red-400 transition-colors">
@@ -67,12 +67,12 @@ export default function Navbar() {
                 <Link href="#estetska-akupunktura" className="px-4 py-2.5 text-sm text-black hover:bg-red-50 hover:text-red-400 transition-colors">
                   Estetska akupunktura
                 </Link>
-                <Link href="#moksibustija-ventuze" className="px-4 py-2.5 text-sm text-black hover:bg-red-50 hover:text-red-400 transition-colors">
-                  Moksibustija, ventuze
+                <Link href="/moksibustija" className="px-4 py-2.5 text-sm text-black hover:bg-red-50 hover:text-red-400 transition-colors">
+                  Moksibustija
                 </Link>
-                {/* <Link href="#veda-pulse" className="px-4 py-2.5 text-sm text-black hover:bg-red-50 hover:text-red-400 transition-colors">
-                  VedaPulse dijagnostika
-                </Link> */}
+                <Link href="#veda-pulse" className="px-4 py-2.5 text-sm text-black hover:bg-red-50 hover:text-red-400 transition-colors">
+                  Ventuze
+                </Link>
               </div>
             </div>
 
@@ -131,7 +131,7 @@ export default function Navbar() {
             
             {isServicesOpen && (
               <div className="pl-4 mt-1 space-y-1 animate-fadeIn">
-                <Link href="#akupunktura" onClick={() => setIsOpen(false)} className="block px-3 py-2 rounded-md text-black hover:bg-red-50 hover:text-red-400 transition-colors">
+                <Link href="/akupunktura" onClick={() => setIsOpen(false)} className="block px-3 py-2 rounded-md text-black hover:bg-red-50 hover:text-red-400 transition-colors">
                   Akupunktura
                 </Link>
                 <Link href="#aurikuloakupunktura" onClick={() => setIsOpen(false)} className="block px-3 py-2 rounded-md text-black hover:bg-red-50 hover:text-red-400 transition-colors">
@@ -140,12 +140,12 @@ export default function Navbar() {
                 <Link href="#estetska-akupunktura" onClick={() => setIsOpen(false)} className="block px-3 py-2 rounded-md text-black hover:bg-red-50 hover:text-red-400 transition-colors">
                   Estetska akupunktura
                 </Link>
-                <Link href="#moksibustija-ventuze" onClick={() => setIsOpen(false)} className="block px-3 py-2 rounded-md text-black hover:bg-red-50 hover:text-red-400 transition-colors">
-                  Moksibustija, ventuze
+                <Link href="/moksibustija" onClick={() => setIsOpen(false)} className="block px-3 py-2 rounded-md text-black hover:bg-red-50 hover:text-red-400 transition-colors">
+                  Moksibustija
                 </Link>
-                {/* <Link href="#veda-pulse" onClick={() => setIsOpen(false)} className="block px-3 py-2 rounded-md text-black hover:bg-red-50 hover:text-red-400 transition-colors">
-                  VedaPulse dijagnostika
-                </Link> */}
+                <Link href="#veda-pulse" onClick={() => setIsOpen(false)} className="block px-3 py-2 rounded-md text-black hover:bg-red-50 hover:text-red-400 transition-colors">
+                  Ventuze
+                </Link>
               </div>
             )}
           </div>
