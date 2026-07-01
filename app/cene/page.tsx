@@ -27,6 +27,13 @@ const paketi = [
     trajanje: "~1.5 sat",
     tag: "Preporučeno",
   },
+  {
+    naziv: "Tretman lica",
+    opis: "Ventuze-vakum čašice + Gua Sha masaža lica",
+    cena: "2.000 din",
+    trajanje: "30-40 min",
+    tag: "Preporučeno",
+  },
 ];
 
 export default function Cene() {

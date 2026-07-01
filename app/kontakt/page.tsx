@@ -50,7 +50,7 @@ export default function Page() {
                 <div className="relative max-w-3xl mx-auto">
                     <span className="inline-flex items-center gap-2 text-black font-semibold tracking-widest uppercase mb-6 text-sm">
                         <span className="w-8 h-px bg-red-400 inline-block" />
-                          Kontakt
+                        Kontakt
                         <span className="w-8 h-px bg-red-400 inline-block" />
                     </span>
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
@@ -103,18 +103,22 @@ export default function Page() {
                                         </span>
                                     </div>
                                 </a>
-
-                                <div className="flex items-start gap-4 ">
+                                <a
+                                    href="https://maps.google.com/?q=Hadži+Ruvimova+Novi+Sad"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-start gap-4 group cursor-pointer"
+                                >
                                     <div className="bg-red-50 p-3 rounded-xl group-hover:bg-red-600 transition-colors duration-300">
                                         <MapPin className="text-red-600 group-hover:text-white transition-colors duration-300" size={22} />
                                     </div>
                                     <div>
                                         <span className="block text-sm text-slate-500 mb-1">Adresa</span>
-                                        <span className="block font-semibold text-medical-dark">
+                                        <span className="block font-semibold text-medical-dark group-hover:text-red-600 transition-colors">
                                             Novi Sad, Hadži Ruvimova
                                         </span>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                         </div>
 

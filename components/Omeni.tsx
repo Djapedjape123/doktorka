@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-// Kad budeš imao pravu sliku u /public folderu, koristićeš next/image
-// import Image from "next/image"; 
+
 
 export default function Omeni() {
   const [isVisible, setIsVisible] = useState(false);
