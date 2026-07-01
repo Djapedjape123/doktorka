@@ -48,8 +48,10 @@ export default function Page() {
             <section className="bg-red-700 relative py-20 md:py-28 px-4 text-center overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-red-900/20 via-transparent to-transparent" />
                 <div className="relative max-w-3xl mx-auto">
-                    <span className="text-red-400 font-semibold tracking-widest uppercase mb-4 block">
-                        Kontakt
+                    <span className="inline-flex items-center gap-2 text-black font-semibold tracking-widest uppercase mb-6 text-sm">
+                        <span className="w-8 h-px bg-red-400 inline-block" />
+                          Kontakt
+                        <span className="w-8 h-px bg-red-400 inline-block" />
                     </span>
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
                         Zakažite svoj termin

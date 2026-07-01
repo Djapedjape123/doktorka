@@ -69,8 +69,9 @@ export default function Home() {
         </div>
       </section>
 
-
+      {/* komponenta o meni */}
       <Omeni />
+      
     </main>
   );
 }

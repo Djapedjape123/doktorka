@@ -70,9 +70,9 @@ export default function Navbar() {
                 <Link href="#moksibustija-ventuze" className="px-4 py-2.5 text-sm text-black hover:bg-red-50 hover:text-red-400 transition-colors">
                   Moksibustija, ventuze
                 </Link>
-                <Link href="#veda-pulse" className="px-4 py-2.5 text-sm text-black hover:bg-red-50 hover:text-red-400 transition-colors">
+                {/* <Link href="#veda-pulse" className="px-4 py-2.5 text-sm text-black hover:bg-red-50 hover:text-red-400 transition-colors">
                   VedaPulse dijagnostika
-                </Link>
+                </Link> */}
               </div>
             </div>
 
@@ -143,9 +143,9 @@ export default function Navbar() {
                 <Link href="#moksibustija-ventuze" onClick={() => setIsOpen(false)} className="block px-3 py-2 rounded-md text-black hover:bg-red-50 hover:text-red-400 transition-colors">
                   Moksibustija, ventuze
                 </Link>
-                <Link href="#veda-pulse" onClick={() => setIsOpen(false)} className="block px-3 py-2 rounded-md text-black hover:bg-red-50 hover:text-red-400 transition-colors">
+                {/* <Link href="#veda-pulse" onClick={() => setIsOpen(false)} className="block px-3 py-2 rounded-md text-black hover:bg-red-50 hover:text-red-400 transition-colors">
                   VedaPulse dijagnostika
-                </Link>
+                </Link> */}
               </div>
             )}
           </div>
@@ -164,7 +164,7 @@ export default function Navbar() {
           <Link href="/kontakt" onClick={() => setIsOpen(false)} className="block px-3 py-2 rounded-md text-black hover:bg-red-50 hover:text-red-400 transition-colors">
             Kontakt
           </Link>
-          <Link href="#kontakt" onClick={() => setIsOpen(false)} className="block px-3 py-2 rounded-md text-black hover:bg-red-50 hover:text-red-400 transition-colors">
+          <Link href="/cene" onClick={() => setIsOpen(false)} className="block px-3 py-2 rounded-md text-black hover:bg-red-50 hover:text-red-400 transition-colors">
             Cene
           </Link>
           
