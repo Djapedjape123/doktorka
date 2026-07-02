@@ -73,6 +73,9 @@ export default function Navbar() {
                 <Link href="#veda-pulse" className="px-4 py-2.5 text-sm text-black hover:bg-red-50 hover:text-red-400 transition-colors">
                   Ventuze
                 </Link>
+                <Link href="/guasha" className="px-4 py-2.5 text-sm text-black hover:bg-red-50 hover:text-red-400 transition-colors">
+                  Gua Sha 
+                </Link>
               </div>
             </div>
 
@@ -145,6 +148,9 @@ export default function Navbar() {
                 </Link>
                 <Link href="#veda-pulse" onClick={() => setIsOpen(false)} className="block px-3 py-2 rounded-md text-black hover:bg-red-50 hover:text-red-400 transition-colors">
                   Ventuze
+                </Link>
+                <Link href="/guasha" onClick={() => setIsOpen(false)} className="block px-3 py-2 rounded-md text-black hover:bg-red-50 hover:text-red-400 transition-colors">
+                  Gua Sha
                 </Link>
               </div>
             )}
