@@ -4,9 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import { Activity, Shield, AlertTriangle, CalendarDays, Sparkles, Droplets, CheckCircle2, Flower2 } from "lucide-react";
 import Link from "next/link";
 
-// ----------------------------------------------------------------------
 // POMOĆNA KOMPONENTA ZA ANIMACIJU (Fade In na skrol)
-// ----------------------------------------------------------------------
+
 function FadeIn({ children, delay = "", className = "" }: { children: React.ReactNode, delay?: string, className?: string }) {
     const [isVisible, setIsVisible] = useState(false);
     const ref = useRef<HTMLDivElement>(null);
