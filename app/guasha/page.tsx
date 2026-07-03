@@ -35,7 +35,7 @@ function FadeIn({ children, delay = "", className = "" }: { children: React.Reac
 
 export default function GuaShaPage() {
 
-    // --- NIZ SVIH SLIKA (4 SLIKE) ---
+
     const sveSlike = [
         "https://res.cloudinary.com/duomot4hp/image/upload/v1783021732/WhatsApp_Image_2026-07-02_at_21.48.35_voowsq.jpg", // Slika 1 (Slajder)
         "https://res.cloudinary.com/duomot4hp/image/upload/v1783020913/WhatsApp_Image_2026-07-02_at_21.31.37_wzzanq.jpg", // Slika 2 (Slajder)
@@ -54,7 +54,7 @@ export default function GuaShaPage() {
         }, 4000);
         return () => clearInterval(timer);
     }, [slikeSlajdera.length]);
-    // -------------------------
+
 
     // Kategorizovane indikacije sa modernim ikonicama na osnovu teksta
     const indikacije = [
