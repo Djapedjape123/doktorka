@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 
 const stats = [
   {
-    broj: 17,
+    broj: 20,
     suffix: "+",
     label: "Godina u medicini",
     opis: "Stomatolog od 2006.",
@@ -15,16 +15,16 @@ const stats = [
     opis: "Licencovani akupunkturolog",
   },
   {
-    broj: 300,
+    broj: 200,
     suffix: "+",
     label: "Zadovoljnih pacijenata",
     opis: "I taj broj raste svaki dan",
   },
   {
-    broj: 4,
+    broj: 6,
     suffix: "",
     label: "Holistička tretmana",
-    opis: "Akupunktura, ventuze, Gua Sha, moksibustija",
+    opis: "Akupunktura, Estesta akupunktura, Ventuze, Gua Sha, Moksibustija, Akupuntura Uha",
   },
 ];
 

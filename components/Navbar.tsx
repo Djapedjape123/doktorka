@@ -70,7 +70,7 @@ export default function Navbar() {
                 <Link href="/moksibustija" className="px-4 py-2.5 text-sm text-black hover:bg-red-50 hover:text-red-400 transition-colors">
                   Moksibustija
                 </Link>
-                <Link href="#veda-pulse" className="px-4 py-2.5 text-sm text-black hover:bg-red-50 hover:text-red-400 transition-colors">
+                <Link href="/ventuze" className="px-4 py-2.5 text-sm text-black hover:bg-red-50 hover:text-red-400 transition-colors">
                   Ventuze
                 </Link>
                 <Link href="/guasha" className="px-4 py-2.5 text-sm text-black hover:bg-red-50 hover:text-red-400 transition-colors">
@@ -84,7 +84,7 @@ export default function Navbar() {
             </Link>
 
             {/* MIT/ISTINA */}
-            <Link href="#mit-istina" className={`transition-colors duration-300 hover:text-red-400 relative py-2 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-red-400 after:transition-all after:duration-300 ${isScrolled ? "text-black" : "text-white"}`}>
+            <Link href="/mit-istina" className={`transition-colors duration-300 hover:text-red-400 relative py-2 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-red-400 after:transition-all after:duration-300 ${isScrolled ? "text-black" : "text-white"}`}>
               Mit/Istina
             </Link>
 
@@ -146,7 +146,7 @@ export default function Navbar() {
                 <Link href="/moksibustija" onClick={() => setIsOpen(false)} className="block px-3 py-2 rounded-md text-black hover:bg-red-50 hover:text-red-400 transition-colors">
                   Moksibustija
                 </Link>
-                <Link href="#veda-pulse" onClick={() => setIsOpen(false)} className="block px-3 py-2 rounded-md text-black hover:bg-red-50 hover:text-red-400 transition-colors">
+                <Link href="/ventuze" onClick={() => setIsOpen(false)} className="block px-3 py-2 rounded-md text-black hover:bg-red-50 hover:text-red-400 transition-colors">
                   Ventuze
                 </Link>
                 <Link href="/guasha" onClick={() => setIsOpen(false)} className="block px-3 py-2 rounded-md text-black hover:bg-red-50 hover:text-red-400 transition-colors">
@@ -163,7 +163,7 @@ export default function Navbar() {
           </Link>
           
           {/* MIT/ISTINA MOBILNI */}
-          <Link href="#mit-istina" onClick={() => setIsOpen(false)} className="block px-3 py-2 rounded-md text-black hover:bg-red-50 hover:text-red-400 transition-colors">
+          <Link href="/mit-istina" onClick={() => setIsOpen(false)} className="block px-3 py-2 rounded-md text-black hover:bg-red-50 hover:text-red-400 transition-colors">
             Mit/Istina
           </Link>
           
