@@ -79,13 +79,13 @@ export default function VentuzePage() {
             {/* Leva strana - Tekst */}
             <div className="w-full lg:w-1/2">
               <FadeIn>
-                <span className="text-teal-400 font-bold tracking-widest uppercase mb-4 block text-sm">
+                <span className="text-red-400 font-bold tracking-widest uppercase mb-4 block text-sm">
                   Vakuum Terapija (Cupping)
                 </span>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
                   Terapija Ventuzama
                 </h1>
-                <div className="w-20 h-1 bg-teal-500 rounded-full mb-8"></div>
+                <div className="w-20 h-1 bg-red-500 rounded-full mb-8"></div>
                 
                 <p className="text-lg text-slate-300 mb-6 leading-relaxed">
                   Jedna od najpopularnijih metoda alternativnog lečenja u svetu. U drevnoj kineskoj medicini smatra se da telo sadrži meridijane kroz koje protiče <strong className="text-white">vitalna energija "chi"</strong>.
@@ -121,7 +121,7 @@ export default function VentuzePage() {
                         key={index}
                         onClick={() => setTrenutnaSlika(index)}
                         className={`h-2 rounded-full transition-all duration-500 ${
-                          index === trenutnaSlika ? "w-8 bg-teal-500" : "w-2 bg-white/50 hover:bg-white" 
+                          index === trenutnaSlika ? "w-8 bg-red-500-500" : "w-2 bg-white/50 hover:bg-white" 
                         }`}
                         aria-label={`Prikaži sliku ${index + 1}`}
                       />

@@ -63,6 +63,8 @@ export default function Page() {
     setOtkriveno(true);
   }
 
+  
+
   function handleSledece() {
     if (trenutno < pitanja.length - 1) {
       setTrenutno(trenutno + 1);
