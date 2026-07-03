@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { CalendarDays, Info } from "lucide-react";
 import Omeni from "@/components/Omeni";
+import Statistike from "@/components/Statistike";
 
 export default function Home() {
   return (
@@ -71,7 +72,7 @@ export default function Home() {
 
       {/* komponenta o meni */}
       <Omeni />
-      
+      <Statistike/>
     </main>
   );
 }
