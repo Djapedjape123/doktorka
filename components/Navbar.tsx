@@ -79,7 +79,7 @@ export default function Navbar() {
               </div>
             </div>
 
-            <Link href="#kviz" className={`transition-colors duration-300 hover:text-red-400 relative py-2 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-red-400 after:transition-all after:duration-300 ${isScrolled ? "text-black" : "text-white"}`}>
+            <Link href="/kviz" className={`transition-colors duration-300 hover:text-red-400 relative py-2 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-red-400 after:transition-all after:duration-300 ${isScrolled ? "text-black" : "text-white"}`}>
               Saznajte svoj balans
             </Link>
 
@@ -158,7 +158,7 @@ export default function Navbar() {
 
           <div className="h-px bg-slate-100 my-2"></div>
 
-          <Link href="#kviz" onClick={() => setIsOpen(false)} className="block px-3 py-2 rounded-md text-black hover:bg-red-50 hover:text-red-400 transition-colors">
+          <Link href="/kviz" onClick={() => setIsOpen(false)} className="block px-3 py-2 rounded-md text-black hover:bg-red-50 hover:text-red-400 transition-colors">
             Saznajte svoj balans
           </Link>
           
