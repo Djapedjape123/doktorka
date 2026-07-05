@@ -70,8 +70,8 @@ export default function GuaShaPage() {
         <main className="w-full min-h-screen bg-slate-50 pb-0">
 
             {/* 1. HERO SEKCIJA (Tamni gradijent zbog transparentnog Navbar-a) */}
-            <section className="relative pt-36 pb-24 bg-gradient-to-b from-slate-900 to-slate-800 overflow-hidden">
-                <div className="absolute inset-0 bg-red-900/10 mix-blend-overlay"></div>
+            <section className="relative pt-36 pb-24 bg-gradient-to-b from-rose-950 to-slate-900 overflow-hidden">
+                <div className="absolute inset-0 bg-rose-900/10 mix-blend-overlay"></div>
 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="flex flex-col lg:flex-row items-center gap-16">

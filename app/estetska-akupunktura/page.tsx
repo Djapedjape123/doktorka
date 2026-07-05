@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Sparkles, Droplets, Leaf, Activity, Smile, Eye, Wind, CalendarDays } from "lucide-react";
+import { Sparkles, Droplets, Leaf, Activity, Smile, Eye, Wind, CalendarDays, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 
 // ----------------------------------------------------------------------
@@ -36,16 +36,16 @@ function FadeIn({ children, delay = "", className = "" }: { children: React.Reac
 
 export default function EstetskaAkupunkturaPage() {
 
-  // --- NIZ SVIH SLIKA (Stavićeš svoje sutra) ---
+  // --- NIZ SVIH SLIKA ZA HERO SLAJDER ---
   const sveSlike = [
-    "https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=1000&auto=format&fit=crop", // Slika 1 (Slajder)
-    "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=1000&auto=format&fit=crop", // Slika 2 (Slajder)
-    "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=1000&auto=format&fit=crop", // Slika 3 (Mehanizam/Kolagen)
+    "https://res.cloudinary.com/duomot4hp/image/upload/v1783253231/images_wq4eu6.jpg",
+    "https://res.cloudinary.com/duomot4hp/image/upload/v1783253224/images2_gkhvaa.jpg",
+    "https://res.cloudinary.com/duomot4hp/image/upload/v1783253215/333_unmolw.jpg",
   ];
 
   const slikeSlajdera = sveSlike.slice(0, 2);
 
-  // Logika za slajder
+  // Logika za HERO slajder
   const [trenutnaSlika, setTrenutnaSlika] = useState(0);
   useEffect(() => {
     const timer = setInterval(() => {
@@ -53,6 +53,25 @@ export default function EstetskaAkupunkturaPage() {
     }, 4000);
     return () => clearInterval(timer);
   }, [slikeSlajdera.length]);
+
+  // --- NIZ SLIKA ZA "PRE I POSLE" SLAJDER ---
+  const slikePrePosle = [
+    "https://res.cloudinary.com/duomot4hp/image/upload/v1783197480/WhatsApp_Image_2026-07-04_at_22.37.41_jqgpsc.jpg", // Slika 1 (Tvoja)
+    "https://res.cloudinary.com/duomot4hp/image/upload/v1783252528/WhatsApp_Image_2026-07-05_at_13.29.41_2_igx2tu.jpg", // Slika 2 (Zameni)
+    "https://res.cloudinary.com/duomot4hp/image/upload/v1783252538/WhatsApp_Image_2026-07-05_at_13.29.42_xmik6v.jpg", // Slika 3 (Zameni)
+    "https://res.cloudinary.com/duomot4hp/image/upload/v1783252520/WhatsApp_Image_2026-07-05_at_13.29.41_xcyba9.jpg", // Slika 4 (Zameni)
+  ];
+
+  // Logika za "PRE I POSLE" slajder (Manuelno listanje)
+  const [slajdPrePosle, setSlajdPrePosle] = useState(0);
+
+  const sledeciSlajd = () => {
+    setSlajdPrePosle((prev) => (prev === slikePrePosle.length - 1 ? 0 : prev + 1));
+  };
+
+  const prethodniSlajd = () => {
+    setSlajdPrePosle((prev) => (prev === 0 ? slikePrePosle.length - 1 : prev - 1));
+  };
 
   // Benefiti izvuceni iz tvog teksta
   const benefiti = [
@@ -105,8 +124,8 @@ export default function EstetskaAkupunkturaPage() {
                       src={slika}
                       alt={`Estetska akupunktura ${index + 1}`}
                       className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-in-out ${index === trenutnaSlika
-                          ? "opacity-100 group-hover:scale-105"
-                          : "opacity-0 scale-100"
+                        ? "opacity-100 group-hover:scale-105"
+                        : "opacity-0 scale-100"
                         }`}
                     />
                   ))}
@@ -132,7 +151,6 @@ export default function EstetskaAkupunkturaPage() {
 
       {/* 2. MEHANIZAM DELOVANJA (Kako funkcioniše) */}
       <section className="py-24 bg-white relative overflow-hidden">
-        {/* Dekorativni krugovi */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-rose-50 rounded-full mix-blend-multiply filter blur-[80px] opacity-60 translate-x-1/3 -translate-y-1/4"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -183,7 +201,6 @@ export default function EstetskaAkupunkturaPage() {
               </p>
             </div>
 
-            {/* Kontejner striktno namešten da bude uspravan (Reels format) na svim ekranima */}
             <div className="relative w-full mx-auto max-w-sm aspect-[9/16] rounded-3xl overflow-hidden shadow-2xl shadow-rose-200 border-8 border-white bg-slate-100 transition-all duration-500">
               <video
                 autoPlay
@@ -192,7 +209,6 @@ export default function EstetskaAkupunkturaPage() {
                 playsInline
                 preload="auto"
                 className="w-full h-full object-cover"
-                /* OVDJE IDE TVOJ CLOUDINARY VIDEO LINK ZA ESTETSKU AKUPUNKTURU */
                 src="https://res.cloudinary.com/duomot4hp/video/upload/v1783197604/WhatsApp_Video_2026-07-04_at_22.39.37_bvlmmo.mp4"
               />
             </div>
@@ -200,46 +216,74 @@ export default function EstetskaAkupunkturaPage() {
         </div>
       </section>
 
-      {/* --- NOVA SEKCIJA: PRE I POSLE --- */}
+      {/* --- 4. INTERAKTIVNI SLAJDER PRE I POSLE --- */}
       <section className="py-24 bg-white relative">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
-           
 
-            {/* --- SEKCIJA PRE I POSLE (Jedna slika) --- */}
-            <section className="py-24 bg-white relative">
-              <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                <FadeIn>
-                  {/* NASLOV */}
-                  <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
-                      Pre i posle tretmana
-                    </h2>
-                    <div className="w-20 h-1 bg-rose-500 mx-auto mt-4 rounded-full"></div>
-                  </div>
+            {/* NASLOV */}
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
+                Pre i posle tretmana
+              </h2>
+              <div className="w-20 h-1 bg-rose-500 mx-auto mt-4 rounded-full"></div>
+            </div>
 
-                  {/* KONTEJNER ZA SLIKU */}
-                  <div className="max-w-3xl mx-auto">
-                    <div className="rounded-3xl overflow-hidden shadow-2xl shadow-rose-200/50 border-4 border-white transform hover:scale-[1.01] transition-transform duration-700">
-                      <img
-                        src="https://res.cloudinary.com/duomot4hp/image/upload/v1783197480/WhatsApp_Image_2026-07-04_at_22.37.41_jqgpsc.jpg"
-                        alt="Rezultati estetske akupunkture pre i posle"
-                        className="w-full h-auto object-cover"
-                      />
-                    </div>
-                    {/* Mali tekst ispod slike ako želiš dodatno pojašnjenje */}
-                    <p className="text-center text-slate-500 mt-6 text-sm italic">
-                      *Vidljivi rezultati prirodne regeneracije kože nakon tretmana.
-                    </p>
-                  </div>
-                </FadeIn>
+            {/* KONTEJNER ZA INTERAKTIVNI SLAJDER */}
+            <div className="max-w-4xl mx-auto relative group">
+
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-rose-200/50 border-4 border-white aspect-[4/5] sm:aspect-[4/3] md:aspect-[16/9] bg-slate-100">
+
+                {/* `.map` METODA ZA RENDER SLIKA */}
+                {slikePrePosle.map((slika, index) => (
+                  <img
+                    key={index}
+                    src={slika}
+                    alt={`Rezultat ${index + 1}`}
+                    className={`absolute inset-0 w-full h-full object-contain p-2 md:p-4 transition-opacity duration-700 ease-in-out ${index === slajdPrePosle ? "opacity-100 z-10" : "opacity-0 z-0"
+                      }`}
+                  />
+                ))}
+
+                {/* DUGME ZA LEVO (Sada uvek vidljivo na mobilnom) */}
+                <button
+                  onClick={prethodniSlajd}
+                  className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white text-slate-800 p-2 md:p-3 rounded-full shadow-lg backdrop-blur-sm opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-300 hover:scale-110"
+                  aria-label="Prethodna slika"
+                >
+                  <ChevronLeft size={24} />
+                </button>
+
+                {/* DUGME ZA DESNO (Sada uvek vidljivo na mobilnom) */}
+                <button
+                  onClick={sledeciSlajd}
+                  className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white text-slate-800 p-2 md:p-3 rounded-full shadow-lg backdrop-blur-sm opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-300 hover:scale-110"
+                  aria-label="Sledeća slika"
+                >
+                  <ChevronRight size={24} />
+                </button>
+
+                {/* TAČKICE NA DNU SLAJDERA */}
+                <div className="absolute bottom-4 md:bottom-6 left-0 right-0 flex justify-center gap-2 z-20">
+                  {slikePrePosle.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setSlajdPrePosle(index)}
+                      className={`h-2.5 rounded-full transition-all duration-300 shadow-sm ${index === slajdPrePosle ? "w-8 bg-rose-500" : "w-2.5 bg-slate-300/80 md:bg-white/70 hover:bg-white"
+                        }`}
+                      aria-label={`Prikaži rezultat ${index + 1}`}
+                    />
+                  ))}
+                </div>
+
               </div>
-            </section>
+            </div>
+
           </FadeIn>
         </div>
       </section>
 
-      {/* 4. BENEFITI (Grid sa ikonicama) */}
+      {/* 5. BENEFITI (Grid sa ikonicama) */}
       <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-rose-50/30">
         <FadeIn>
           <div className="text-center mb-16">
@@ -267,7 +311,7 @@ export default function EstetskaAkupunkturaPage() {
         </div>
       </section>
 
-      {/* 5. SLIKA U PUNOJ ŠIRINI (CTA BANER) */}
+      {/* 6. SLIKA U PUNOJ ŠIRINI (CTA BANER) */}
       <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden">
         {/* Parallax Slika */}
         <div
