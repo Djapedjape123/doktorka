@@ -32,6 +32,7 @@ function FadeIn({ children, delay = "", className = "" }: { children: React.Reac
     </div>
   );
 }
+ 
 // ----------------------------------------------------------------------
 
 export default function EstetskaAkupunkturaPage() {

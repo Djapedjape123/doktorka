@@ -61,7 +61,7 @@ export default function Navbar() {
                 <Link href="/akupunktura" className="px-4 py-2.5 text-sm text-black hover:bg-red-50 hover:text-red-400 transition-colors">
                   Akupunktura
                 </Link>
-                <Link href="#aurikuloakupunktura" className="px-4 py-2.5 text-sm text-black hover:bg-red-50 hover:text-red-400 transition-colors">
+                <Link href="/aurikuloakupunktura" className="px-4 py-2.5 text-sm text-black hover:bg-red-50 hover:text-red-400 transition-colors">
                   Aurikuloakupunktura
                 </Link>
                 <Link href="/estetska-akupunktura" className="px-4 py-2.5 text-sm text-black hover:bg-red-50 hover:text-red-400 transition-colors">
@@ -137,7 +137,7 @@ export default function Navbar() {
                 <Link href="/akupunktura" onClick={() => setIsOpen(false)} className="block px-3 py-2 rounded-md text-black hover:bg-red-50 hover:text-red-400 transition-colors">
                   Akupunktura
                 </Link>
-                <Link href="#aurikuloakupunktura" onClick={() => setIsOpen(false)} className="block px-3 py-2 rounded-md text-black hover:bg-red-50 hover:text-red-400 transition-colors">
+                <Link href="/aurikuloakupunktura" onClick={() => setIsOpen(false)} className="block px-3 py-2 rounded-md text-black hover:bg-red-50 hover:text-red-400 transition-colors">
                   Aurikuloakupunktura
                 </Link>
                 <Link href="/estetska-akupunktura" onClick={() => setIsOpen(false)} className="block px-3 py-2 rounded-md text-black hover:bg-red-50 hover:text-red-400 transition-colors">
