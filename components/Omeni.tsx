@@ -80,7 +80,7 @@ export default function Omeni() {
               <div className="w-16 h-[2px] bg-red-600 rounded-full"></div>
               <div>
                 <span className="block font-bold text-xl text-medical-dark">Dr Košarac</span>
-                <span className="text-sm text-slate-500">Stomatolog i akupunkturolog</span>
+                <span className="text-sm text-slate-500">Doktor stomatologije i akupunkturolog</span>
               </div>
             </div>
             
