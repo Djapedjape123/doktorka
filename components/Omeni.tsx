@@ -64,7 +64,7 @@ export default function Omeni() {
             </h2>
             
             <p className="text-slate-600 mb-6 text-lg leading-relaxed">
-              Rođena sam u Splitu, gde sam završila osnovnu školu, a gimnaziju &quot;Svetozar Marković&quot; i Medicinski fakultet, smer stomatologija, završila sam u Novom Sadu 2006. godine. Svoje znanje sam dalje proširila 2009. godine diplomiravši Menadžment u zdravstvu na FON-u Univerziteta u Beogradu.
+              Rođena sam u Splitu, gde sam završila osnovnu školu, a gimnaziju &quot;Svetozar Marković&quot; i Medicinski fakultet, smer stomatologija, završila sam u Novom Sadu 2006. godine. Svoje znanje sam dalje proširila 2009. godine dobila sertifikat o Menadžment u zdravstvu na FON-u Univerziteta u Beogradu.
             </p>
             
             <p className="text-slate-600 mb-6 leading-relaxed">
