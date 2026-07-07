@@ -57,7 +57,7 @@ export default function AkupunkturaPage() {
     { naslov: "Bolovi i zglobovi", opis: "Leđa, vrat, ramena, kolena, išijas, artritis", ikona: <Activity size={24} /> },
     { naslov: "Glava i respiratorni trakt", opis: "Migrene, glavobolje, sinusitis, alergije, astma", ikona: <Brain size={24} /> },
     { naslov: "Mentalno zdravlje", opis: "Nesanica, stres, anksioznost, depresija", ikona: <Moon size={24} /> },
-    { naslov: "Žensko zdravlje i hormoni", opis: "Neplodnost, menstrualne i klimakterične tegobe", ikona: <Heart size={24} /> },
+    { naslov: "Žensko zdravlje i hormoni", opis: "Neplodnost, menstrualne,klimakterične tegobe,meno pauza i menstrualne tegobe", ikona: <Heart size={24} /> },
     { naslov: "Metabolizam i probava", opis: "Opstipacija, dijareja, gojaznost", ikona: <Leaf size={24} /> },
     { naslov: "Opšti balans", opis: "Imunitet, vitalnost, odvikavanje od pušenja", ikona: <Shield size={24} /> },
   ];
