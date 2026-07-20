@@ -101,7 +101,7 @@ export default function Navbar() {
               className="inline-flex items-center gap-2 bg-holistic-green text-white px-5 py-2.5 rounded-full hover:bg-teal-800 transition-all font-semibold shadow-xs"
             >
               <Phone size={18} />
-              <span>063/8504589</span>
+              <span>Više informacija</span>
             </a>
           </div>
 
