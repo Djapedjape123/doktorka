@@ -22,9 +22,8 @@ function FadeIn({ children, delay = "", className = "" }: { children: React.Reac
   return (
     <div
       ref={ref}
-      className={`transition-all duration-1000 ease-out transform ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-      } ${delay} ${className}`}
+      className={`transition-all duration-1000 ease-out transform ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+        } ${delay} ${className}`}
     >
       {children}
     </div>
@@ -33,14 +32,14 @@ function FadeIn({ children, delay = "", className = "" }: { children: React.Reac
 // ----------------------------------------------------------------------
 
 export default function MoksibustijaPage() {
-  
+
   // --- LOGIKA ZA SLAJDER ---
   const [trenutnaSlika, setTrenutnaSlika] = useState(0);
-  
+
   // Ovde ubacuješ sve slike koje želiš u slajderu (može i više od 2)
   const slikeSlajdera = [
     "https://res.cloudinary.com/duomot4hp/image/upload/v1782925588/WhatsApp_Image_2026-07-01_at_19.04.14_tfqfxc.jpg",
-    "https://res.cloudinary.com/duomot4hp/image/upload/v1782925595/WhatsApp_Image_2026-07-01_at_19.04.09_m3w2r7.jpg" 
+    "https://res.cloudinary.com/duomot4hp/image/upload/v1782925595/WhatsApp_Image_2026-07-01_at_19.04.09_m3w2r7.jpg"
   ];
 
   // Efekat koji menja sliku svake 4 sekunde
@@ -64,14 +63,14 @@ export default function MoksibustijaPage() {
 
   return (
     <main className="w-full min-h-screen bg-slate-50 pb-0">
-      
+
       {/* 1. HERO SEKCIJA */}
       <section className="relative pt-36 pb-24 bg-gradient-to-b from-slate-900 to-slate-800 overflow-hidden">
         <div className="absolute inset-0 bg-red-900/10 mix-blend-overlay"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-16">
-            
+
             {/* Leva strana - Tekst */}
             <div className="w-full lg:w-1/2">
               <FadeIn>
@@ -82,7 +81,7 @@ export default function MoksibustijaPage() {
                   Moksibustija
                 </h1>
                 <div className="w-20 h-1 bg-red-500 rounded-full mb-8"></div>
-                
+
                 <p className="text-lg text-slate-300 mb-6 leading-relaxed">
                   Moksibustija je jedna od najstarijih tehnika kineske tradicionalne medicine. Predstavlja stimulaciju akupunkturnih tačaka povišenom temperaturom koja nastaje upotrebom tzv. <strong className="text-white">Moksa vune</strong>, a koja se pravi od osušenog lišća divljeg pelina (<em>Artemisia vulgaris</em>) pretvorenog u fini prah.
                 </p>
@@ -99,17 +98,16 @@ export default function MoksibustijaPage() {
             <div className="w-full lg:w-1/2">
               <FadeIn delay="delay-200">
                 <div className="relative aspect-square md:aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl shadow-black/40 group">
-                  
+
                   {slikeSlajdera.map((slika, index) => (
                     <img
                       key={index}
                       src={slika}
                       alt={`Moksibustija terapija slika ${index + 1}`}
-                      className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-in-out ${
-                        index === trenutnaSlika 
-                          ? "opacity-100 group-hover:scale-105" 
-                          : "opacity-0 scale-100" 
-                      }`}
+                      className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-in-out ${index === trenutnaSlika
+                        ? "opacity-100 group-hover:scale-105"
+                        : "opacity-0 scale-100"
+                        }`}
                     />
                   ))}
 
@@ -120,11 +118,10 @@ export default function MoksibustijaPage() {
                       <button
                         key={index}
                         onClick={() => setTrenutnaSlika(index)}
-                        className={`h-2 rounded-full transition-all duration-500 ${
-                          index === trenutnaSlika 
-                            ? "w-8 bg-red-500" 
-                            : "w-2 bg-white/50 hover:bg-white" 
-                        }`}
+                        className={`h-2 rounded-full transition-all duration-500 ${index === trenutnaSlika
+                          ? "w-8 bg-red-500"
+                          : "w-2 bg-white/50 hover:bg-white"
+                          }`}
                         aria-label={`Prikaži sliku ${index + 1}`}
                       />
                     ))}
@@ -140,7 +137,7 @@ export default function MoksibustijaPage() {
       {/* 2. KARTICE - DIREKTNA I INDIREKTNA METODA */}
       <section className="bg-white pt-24 pb-16 border-t border-slate-100 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-red-50 rounded-full mix-blend-multiply filter blur-[80px] opacity-60 translate-x-1/2 -translate-y-1/2"></div>
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <FadeIn>
             <h2 className="text-3xl font-bold text-center text-slate-900 mb-16">
@@ -174,10 +171,10 @@ export default function MoksibustijaPage() {
                   Znatno češće se primenjuje. Između kože i mokse se postavlja prirodni sloj, a zatim se moksa zapali. Takođe se koriste i štapići (fišeci) od mokse u vidu cigare koji se upale i drže na udaljenosti od nekoliko centimetara od kože.
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  <span className="bg-red-50 text-red-700 text-sm font-medium px-3 py-1.5 rounded-lg flex items-center gap-1"><CheckCircle2 size={16}/> Parče đumbira</span>
-                  <span className="bg-red-50 text-red-700 text-sm font-medium px-3 py-1.5 rounded-lg flex items-center gap-1"><CheckCircle2 size={16}/> Beli luk</span>
-                  <span className="bg-red-50 text-red-700 text-sm font-medium px-3 py-1.5 rounded-lg flex items-center gap-1"><CheckCircle2 size={16}/> Morska so</span>
-                  <span className="bg-red-50 text-red-700 text-sm font-medium px-3 py-1.5 rounded-lg flex items-center gap-1"><CheckCircle2 size={16}/> Moksa cigara</span>
+                  <span className="bg-red-50 text-red-700 text-sm font-medium px-3 py-1.5 rounded-lg flex items-center gap-1"><CheckCircle2 size={16} /> Parče đumbira</span>
+                  <span className="bg-red-50 text-red-700 text-sm font-medium px-3 py-1.5 rounded-lg flex items-center gap-1"><CheckCircle2 size={16} /> Beli luk</span>
+                  <span className="bg-red-50 text-red-700 text-sm font-medium px-3 py-1.5 rounded-lg flex items-center gap-1"><CheckCircle2 size={16} /> Morska so</span>
+                  <span className="bg-red-50 text-red-700 text-sm font-medium px-3 py-1.5 rounded-lg flex items-center gap-1"><CheckCircle2 size={16} /> Moksa cigara</span>
                 </div>
               </div>
             </FadeIn>
@@ -193,7 +190,7 @@ export default function MoksibustijaPage() {
               <span className="text-red-600 font-bold uppercase tracking-widest text-sm mb-2 block">Iskusite tretman</span>
               <h2 className="text-3xl font-bold text-slate-900 mb-4">Pogledajte kako to izgleda u praksi</h2>
             </div>
-            
+
             <div className="relative w-full max-w-sm mx-auto aspect-[9/16] rounded-3xl overflow-hidden shadow-2xl shadow-slate-300 border-8 border-white bg-slate-100">
               <video
                 autoPlay
@@ -214,7 +211,7 @@ export default function MoksibustijaPage() {
       {/* 4. INDIKACIJE I KONTRAINDIKACIJE */}
       <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-100">
         <div className="flex flex-col lg:flex-row gap-16">
-          
+
           {/* Leva strana: Indikacije */}
           <div className="w-full lg:w-2/3">
             <FadeIn>
@@ -273,11 +270,11 @@ export default function MoksibustijaPage() {
 
       {/* 5. SLIKA U PUNOJ ŠIRINI (CTA BANER) */}
       <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden">
-        <div 
+        <div
           className="absolute inset-0 w-full h-full bg-cover bg-center bg-fixed"
           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=2000&auto=format&fit=crop')" }}
         ></div>
-        
+
         <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-[2px]"></div>
 
         <div className="relative z-10 text-center px-4 max-w-3xl mx-auto">
@@ -289,18 +286,21 @@ export default function MoksibustijaPage() {
               Zakažite vašu moksibustiju online ili nas kontaktirajte za stručne konsultacije i procenu stanja.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link
-                href="#"
-                className="flex items-center justify-center gap-2 bg-red-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-red-700 transition-all duration-300 shadow-xl shadow-red-600/30 hover:-translate-y-1"
+              <a
+                href="https://www.fresha.com/book-now/demo-verzija-a65yj618/services?lid=3126714&eid=5449989&oiid=sv%3A28189429&share=true&pId=3025278"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 bg-rose-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-rose-700 transition-all duration-300 shadow-xl shadow-rose-600/30 hover:-translate-y-1"
               >
                 <CalendarDays size={20} />
-                Zakažite online
-              </Link>
+                Zakažite ovaj tretman
+              </a>
             </div>
           </FadeIn>
         </div>
-      </section>
+      </section >
+      
 
-    </main>
+    </main >
   );
 }
