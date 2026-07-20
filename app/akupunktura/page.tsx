@@ -61,7 +61,19 @@ export default function AkupunkturaPage() {
     { naslov: "Metabolizam i probava", opis: "Opstipacija, dijareja, gojaznost", ikona: <Leaf size={24} /> },
     { naslov: "Opšti balans", opis: "Imunitet, vitalnost, odvikavanje od pušenja", ikona: <Shield size={24} /> },
   ];
-
+ // --- JSON-LD za SEO stranice usluge ---
+// Dodaj ovo unutar komponente, pre return statement-a
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "MedicalProcedure",
+  "name": "Akupunktura",
+  "provider": {
+    "@type": "MedicalClinic",
+    "name": "Dr Košarac",
+    "address": "Novi Sad, Srbija"
+  },
+  "description": "Profesionalna akupunktura za lečenje bola, stresa i hroničnih stanja u Novom Sadu."
+};
   return (
     <main className="w-full min-h-screen bg-slate-50 pb-0">
 

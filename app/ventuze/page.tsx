@@ -57,19 +57,38 @@ export default function VentuzePage() {
 
     // Kategorizovane indikacije sa modernim ikonicama na osnovu teksta
     const indikacije = [
-        { naslov: "Lokomotorni sistem", opis: "Otklanjaju bol u leđima, išijas, bol među lopaticama i u lumbalnom delu.", ikona: <Activity size={24} /> },
-        { naslov: "Respiratorni trakt", opis: "Koriste se za lečenje bronhitisa, astme i ublažavanje upalnih procesa.", ikona: <Wind size={24} /> },
-        { naslov: "Celulit i mršavljenje", opis: "Umanjuju gojaznost, smanjuju celulit i odstranjuju 'pomorandžinu koru'.", ikona: <Droplets size={24} /> },
-        { naslov: "Detoksikacija i metabolizam", opis: "Normalizuju metabolizam, poboljšavaju cirkulaciju i detoksikuju organizam.", ikona: <Leaf size={24} /> },
-        { naslov: "Imunitet i vitalnost", opis: "Deluju antivirusno, podižu nivo energije i jačaju opšti imunitet.", ikona: <Shield size={24} /> },
-        { naslov: "Mentalno i opšte zdravlje", opis: "Leče nesanicu, smanjuju otoke, digestivne smetnje i podmlađuju kožu.", ikona: <Moon size={24} /> },
+        { naslov: "Lokomotorni sistem", opis: "Otklanjaju bol u leđima, išijas, bol među lopaticama i u lumbalnom delu.", ikona: <Activity size={24} aria-hidden="true" /> },
+        { naslov: "Respiratorni trakt", opis: "Koriste se za lečenje bronhitisa, astme i ublažavanje upalnih procesa.", ikona: <Wind size={24} aria-hidden="true" /> },
+        { naslov: "Celulit i mršavljenje", opis: "Umanjuju gojaznost, smanjuju celulit i odstranjuju 'pomorandžinu koru'.", ikona: <Droplets size={24} aria-hidden="true" /> },
+        { naslov: "Detoksikacija i metabolizam", opis: "Normalizuju metabolizam, poboljšavaju cirkulaciju i detoksikuju organizam.", ikona: <Leaf size={24} aria-hidden="true" /> },
+        { naslov: "Imunitet i vitalnost", opis: "Deluju antivirusno, podižu nivo energije i jačaju opšti imunitet.", ikona: <Shield size={24} aria-hidden="true" /> },
+        { naslov: "Mentalno i opšte zdravlje", opis: "Leče nesanicu, smanjuju otoke, digestivne smetnje i podmlađuju kožu.", ikona: <Moon size={24} aria-hidden="true" /> },
     ];
+
+    // JSON-LD Schema za Ventuze
+    const serviceSchema = {
+        "@context": "https://schema.org",
+        "@type": "MedicalProcedure",
+        "name": "Terapija Ventuzama (Cupping)",
+        "provider": {
+            "@type": "MedicalClinic",
+            "name": "Dr Košarac",
+            "address": "Novi Sad, Srbija"
+        },
+        "description": "Profesionalna vakuum terapija (ventuze) za lečenje bola u leđima, respiratornih problema i anticelulit tretmane u Novom Sadu."
+    };
 
     return (
         <main className="w-full min-h-screen bg-slate-50 pb-0">
+            
+            {/* SEO: Strukturirani podaci za Rich Snippets */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+            />
 
             {/* 1. HERO SEKCIJA */}
-            <section className="relative pt-36 pb-24 bg-gradient-to-b from-teal-950 to-slate-900 overflow-hidden">
+            <section aria-label="Uvod u terapiju ventuzama" className="relative pt-36 pb-24 bg-gradient-to-b from-teal-950 to-slate-900 overflow-hidden">
                 <div className="absolute inset-0 bg-teal-900/10 mix-blend-overlay"></div>
 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -79,8 +98,9 @@ export default function VentuzePage() {
                         <div className="w-full lg:w-1/2">
                             <FadeIn>
                                 <span className="text-red-400 font-bold tracking-widest uppercase mb-4 block text-sm">
-                                    Vakuum Terapija (Cupping)
+                                    Vakuum Terapija (Cupping) Novi Sad
                                 </span>
+                                {/* SEO: H1 sada sadrži primarnu ključnu reč i lokaciju */}
                                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
                                     Terapija Ventuzama
                                 </h1>
@@ -103,7 +123,10 @@ export default function VentuzePage() {
                                         <img
                                             key={index}
                                             src={slika}
-                                            alt={`Terapija ventuzama ${index + 1}`}
+                                            // SEO: Unapređen alt tekst
+                                            alt={`Terapija ventuzama Novi Sad - Prikaz tretmana ${index + 1}`}
+                                            // LCP Optimizacija: prva slika se učitava odmah
+                                            loading={index === 0 ? "eager" : "lazy"}
                                             className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-in-out ${index === trenutnaSlika
                                                     ? "opacity-100 group-hover:scale-105"
                                                     : "opacity-0 scale-100"
@@ -120,7 +143,7 @@ export default function VentuzePage() {
                                                 onClick={() => setTrenutnaSlika(index)}
                                                 className={`h-2 rounded-full transition-all duration-500 ${index === trenutnaSlika ? "w-8 bg-red-500" : "w-2 bg-white/50 hover:bg-white"
                                                     }`}
-                                                aria-label={`Prikaži sliku ${index + 1}`}
+                                                aria-label={`Prikaži sliku tretmana ventuzama ${index + 1}`}
                                             />
                                         ))}
                                     </div>
@@ -132,7 +155,7 @@ export default function VentuzePage() {
             </section>
 
             {/* 2. KAKO DELUJE VAKUUM (Proces) */}
-            <section className="py-24 bg-white relative border-b border-slate-100">
+            <section aria-label="Proces terapije ventuzama" className="py-24 bg-white relative border-b border-slate-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <FadeIn>
                         <div className="text-center mb-16">
@@ -145,7 +168,7 @@ export default function VentuzePage() {
                         <FadeIn delay="delay-100">
                             <div className="bg-slate-50 rounded-3xl p-8 border border-slate-100 h-full relative overflow-hidden group hover:border-teal-200 transition-colors">
                                 <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-teal-600 mb-6 shadow-sm">
-                                    <Flame size={28} />
+                                    <Flame size={28} aria-hidden="true" />
                                 </div>
                                 <h3 className="text-xl font-bold text-slate-800 mb-4">1. Postavljanje staklenih čaša</h3>
                                 <p className="text-slate-600 text-sm leading-relaxed">
@@ -157,7 +180,7 @@ export default function VentuzePage() {
                         <FadeIn delay="delay-200">
                             <div className="bg-slate-50 rounded-3xl p-8 border border-slate-100 h-full relative overflow-hidden group hover:border-teal-200 transition-colors">
                                 <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-teal-600 mb-6 shadow-sm">
-                                    <Activity size={28} />
+                                    <Activity size={28} aria-hidden="true" />
                                 </div>
                                 <h3 className="text-xl font-bold text-slate-800 mb-4">2. Delovanje vakuuma</h3>
                                 <p className="text-slate-600 text-sm leading-relaxed">
@@ -169,7 +192,7 @@ export default function VentuzePage() {
                         <FadeIn delay="delay-300">
                             <div className="bg-slate-50 rounded-3xl p-8 border border-slate-100 h-full relative overflow-hidden group hover:border-teal-200 transition-colors">
                                 <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-teal-600 mb-6 shadow-sm">
-                                    <Shield size={28} />
+                                    <Shield size={28} aria-hidden="true" />
                                 </div>
                                 <h3 className="text-xl font-bold text-slate-800 mb-4">3. Oporavak nakon tretmana</h3>
                                 <p className="text-slate-600 text-sm leading-relaxed">
@@ -182,7 +205,7 @@ export default function VentuzePage() {
             </section>
 
             {/* --- NOVA VIDEO SEKCIJA --- */}
-            <section className="bg-slate-50 py-24 relative z-10 border-b border-slate-200">
+            <section aria-label="Video prikaz terapije ventuzama" className="bg-slate-50 py-24 relative z-10 border-b border-slate-200">
                 <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                     <FadeIn>
                         <div className="text-center mb-10">
@@ -194,25 +217,27 @@ export default function VentuzePage() {
                         </div>
 
                         <div className="relative w-full mx-auto max-w-sm aspect-[9/16] rounded-3xl overflow-hidden shadow-2xl shadow-slate-300 border-8 border-white bg-slate-100">
+                            {/* SEO: Dodat title i poster atribut za brže učitavanje */}
                             <video
                                 autoPlay
                                 loop
                                 muted
                                 playsInline
                                 preload="auto"
+                                title="Prikaz vakuum terapije ventuzama"
+                                poster={sveSlike[0]} // Koristimo prvu sliku kao poster dok se video ne učita
                                 className="w-full h-full object-cover"
                                 src="https://res.cloudinary.com/duomot4hp/video/upload/f_auto,q_auto/v1783196741/WhatsApp_Video_2026-07-04_at_22.21.30_utl2dn.mp4"
-                            />
+                            >
+                                Vaš pretraživač ne podržava video format.
+                            </video>
                         </div>
                     </FadeIn>
                 </div>
             </section>
 
-
-            
-
             {/* 3. EDUKATIVNI BOKS: DIJAGNOSTIČKA MOĆ (Krugovi) */}
-            <section className="py-12 bg-white">
+            <section aria-label="Dijagnostika nakon ventuza" className="py-12 bg-white">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                     <FadeIn>
                         <div className="relative bg-teal-900 rounded-3xl p-8 md:p-12 overflow-hidden shadow-xl text-center">
@@ -238,7 +263,7 @@ export default function VentuzePage() {
             </section>
 
             {/* 4. DUALNI FOKUS: ZDRAVLJE vs. KOZMETIKA */}
-            <section className="bg-slate-50 py-24 relative overflow-hidden">
+            <section aria-label="Zdravstveni i kozmetički benefiti ventuza" className="bg-slate-50 py-24 relative overflow-hidden">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
 
                     {/* BLOK 1: Lokomotorni sistem (Slika 3 levo, Tekst desno) */}
@@ -246,23 +271,23 @@ export default function VentuzePage() {
                         <div className="w-full lg:w-1/2">
                             <FadeIn>
                                 <div className="relative aspect-square rounded-3xl overflow-hidden shadow-xl border-4 border-white">
-                                    <img src={sveSlike[2]} alt="Ventuze na leđima" className="w-full h-full object-cover" />
+                                    <img src={sveSlike[2]} alt="Terapija ventuzama za bolove u leđima" loading="lazy" className="w-full h-full object-cover" />
                                 </div>
                             </FadeIn>
                         </div>
                         <div className="w-full lg:w-1/2">
                             <FadeIn delay="delay-100">
                                 <div className="inline-flex items-center gap-2 bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-bold uppercase tracking-wider mb-6">
-                                    <Heart size={16} /> Zdravlje leđa i mišića
+                                    <Heart size={16} aria-hidden="true" /> Zdravlje leđa i mišića
                                 </div>
                                 <h2 className="text-3xl font-bold text-slate-900 mb-6">Lečenje lokomotornog sistema</h2>
                                 <p className="text-slate-600 mb-6 leading-relaxed">
                                     Ova metoda daje izuzetne rezultate kod ukočenih leđa i problema sa zglobovima. Posebno se preporučuje u preventivne svrhe, postavljanjem na akupunkturne tačke koje odgovaraju pojedinačnim organima.
                                 </p>
                                 <ul className="space-y-3">
-                                    <li className="flex items-start gap-3"><CheckCircle2 className="text-teal-600 shrink-0 mt-0.5" size={20} /> <span className="text-slate-700">Otklanja bol među lopaticama i u lumbalnom delu</span></li>
-                                    <li className="flex items-start gap-3"><CheckCircle2 className="text-teal-600 shrink-0 mt-0.5" size={20} /> <span className="text-slate-700">Olakšava tegobe kod išijasa i teške ukočenosti</span></li>
-                                    <li className="flex items-start gap-3"><CheckCircle2 className="text-teal-600 shrink-0 mt-0.5" size={20} /> <span className="text-slate-700">Izvlači "hladnoću" iz tela nakupljenu tokom zimskog perioda</span></li>
+                                    <li className="flex items-start gap-3"><CheckCircle2 className="text-teal-600 shrink-0 mt-0.5" size={20} aria-hidden="true" /> <span className="text-slate-700">Otklanja bol među lopaticama i u lumbalnom delu</span></li>
+                                    <li className="flex items-start gap-3"><CheckCircle2 className="text-teal-600 shrink-0 mt-0.5" size={20} aria-hidden="true" /> <span className="text-slate-700">Olakšava tegobe kod išijasa i teške ukočenosti</span></li>
+                                    <li className="flex items-start gap-3"><CheckCircle2 className="text-teal-600 shrink-0 mt-0.5" size={20} aria-hidden="true" /> <span className="text-slate-700">Izvlači "hladnoću" iz tela nakupljenu tokom zimskog perioda</span></li>
                                 </ul>
                             </FadeIn>
                         </div>
@@ -273,14 +298,14 @@ export default function VentuzePage() {
                         <div className="w-full lg:w-1/2">
                             <FadeIn delay="delay-200">
                                 <div className="relative aspect-square rounded-3xl overflow-hidden shadow-xl border-4 border-white">
-                                    <img src={sveSlike[3]} alt="Vakuum masaža protiv celulita" className="w-full h-full object-cover" />
+                                    <img src={sveSlike[3]} alt="Anticelulit vakuum masaža ventuzama" loading="lazy" className="w-full h-full object-cover" />
                                 </div>
                             </FadeIn>
                         </div>
                         <div className="w-full lg:w-1/2">
                             <FadeIn delay="delay-300">
                                 <div className="inline-flex items-center gap-2 bg-orange-100 text-orange-700 px-4 py-2 rounded-full text-sm font-bold uppercase tracking-wider mb-6">
-                                    <Droplets size={16} /> Kozmetika i mršavljenje
+                                    <Droplets size={16} aria-hidden="true" /> Kozmetika i mršavljenje
                                 </div>
                                 <h2 className="text-3xl font-bold text-slate-900 mb-6">Borba sa kilogramima i celulitom</h2>
                                 <p className="text-slate-600 mb-6 leading-relaxed">
@@ -299,7 +324,7 @@ export default function VentuzePage() {
             </section>
 
             {/* 5. INDIKACIJE I KONTRAINDIKACIJE */}
-            <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white">
+            <section aria-label="Indikacije i kontraindikacije za ventuze" className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white">
                 <div className="flex flex-col lg:flex-row gap-16">
 
                     {/* Leva strana: Indikacije */}
@@ -327,7 +352,7 @@ export default function VentuzePage() {
                         <FadeIn delay="delay-300">
                             <div className="bg-orange-50/50 border border-orange-200 rounded-3xl p-8 sticky top-32">
                                 <div className="bg-orange-100 w-14 h-14 rounded-full flex items-center justify-center text-orange-600 mb-6">
-                                    <AlertTriangle size={28} />
+                                    <AlertTriangle size={28} aria-hidden="true" />
                                 </div>
                                 <h3 className="text-2xl font-bold text-slate-900 mb-4">Kontraindikacije</h3>
                                 <p className="text-slate-600 mb-6 text-sm">
@@ -355,11 +380,13 @@ export default function VentuzePage() {
             </section>
 
             {/* 6. SLIKA U PUNOJ ŠIRINI (CTA BANER) */}
-            <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+            <section aria-label="Zakažite tretman ventuzama" className="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden">
                 {/* Parallax Slika */}
                 <div
                     className="absolute inset-0 w-full h-full bg-cover bg-center bg-fixed"
                     style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600334129128-685c5582fd35?q=80&w=2000&auto=format&fit=crop')" }}
+                    role="img"
+                    aria-label="Opuštajuća masaža i spa ambijent"
                 ></div>
 
                 <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-[2px]"></div>
@@ -375,9 +402,11 @@ export default function VentuzePage() {
                         <div className="flex flex-col sm:flex-row justify-center gap-4">
                             <Link
                                 href="#"
+                                title="Zakažite online termin za ventuze"
+                                aria-label="Kliknite ovde da zakažete online termin za terapiju ventuzama"
                                 className="flex items-center justify-center gap-2 bg-teal-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-teal-700 transition-all duration-300 shadow-xl shadow-teal-600/30 hover:-translate-y-1"
                             >
-                                <CalendarDays size={20} />
+                                <CalendarDays size={20} aria-hidden="true" />
                                 Zakažite online
                             </Link>
                         </div>
