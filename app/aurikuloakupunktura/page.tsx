@@ -308,6 +308,7 @@ export default function AurikuloakupunkturaPage() {
               Zakažite svoj tretman ušne akupunkture i iskoristite mapu na svom telu za prirodno isceljenje celog organizma.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
+              {/* rezervqcije */}
               <Link
                 href="/kontakt"
                 className="flex items-center justify-center gap-2 bg-rose-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-rose-700 transition-all duration-300 shadow-xl shadow-rose-600/30 hover:-translate-y-1"
