@@ -61,6 +61,7 @@ export default function Home() {
               className="group flex items-center justify-center gap-2 bg-red-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-red-700 transition-all duration-300 shadow-xl hover:shadow-red-600/50 hover:-translate-y-1"
             >
               <CalendarDays size={20} className="group-hover:scale-110 transition-transform" />
+              
               Zakažite online
             </Link>
 
