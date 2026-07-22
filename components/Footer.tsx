@@ -95,6 +95,7 @@ export default function Footer() {
                                 </Link>
                             </li>
                             <li>
+                                
                                 <Link href="/aurikuloakupunktura" className="hover:text-red-400 transition-colors flex items-center gap-2 group">
                                     <span className="w-1.5 h-1.5 rounded-full bg-slate-700 group-hover:bg-red-500 transition-colors"></span>
                                     Aurikuloakupunktura
