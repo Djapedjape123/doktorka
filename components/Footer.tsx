@@ -65,12 +65,12 @@ export default function Footer() {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#kviz" className="hover:text-red-400 transition-colors inline-block relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 hover:after:w-full after:bg-red-400 after:transition-all after:duration-300">
+                                <Link href="/kviz" className="hover:text-red-400 transition-colors inline-block relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 hover:after:w-full after:bg-red-400 after:transition-all after:duration-300">
                                     Saznajte svoj balans (Kviz)
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#mit-istina" className="hover:text-red-400 transition-colors inline-block relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 hover:after:w-full after:bg-red-400 after:transition-all after:duration-300">
+                                <Link href="/mit-istina" className="hover:text-red-400 transition-colors inline-block relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 hover:after:w-full after:bg-red-400 after:transition-all after:duration-300">
                                     Mitovi i istine
                                 </Link>
                             </li>
