@@ -95,13 +95,13 @@ export default function Footer() {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#aurikuloakupunktura" className="hover:text-red-400 transition-colors flex items-center gap-2 group">
+                                <Link href="/aurikuloakupunktura" className="hover:text-red-400 transition-colors flex items-center gap-2 group">
                                     <span className="w-1.5 h-1.5 rounded-full bg-slate-700 group-hover:bg-red-500 transition-colors"></span>
                                     Aurikuloakupunktura
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#estetska-akupunktura" className="hover:text-red-400 transition-colors flex items-center gap-2 group">
+                                <Link href="/estetska-akupunktura" className="hover:text-red-400 transition-colors flex items-center gap-2 group">
                                     <span className="w-1.5 h-1.5 rounded-full bg-slate-700 group-hover:bg-red-500 transition-colors"></span>
                                     Estetska akupunktura
                                 </Link>
@@ -113,7 +113,7 @@ export default function Footer() {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#veda-pulse" className="hover:text-red-400 transition-colors flex items-center gap-2 group">
+                                <Link href="/ventuze" className="hover:text-red-400 transition-colors flex items-center gap-2 group">
                                     <span className="w-1.5 h-1.5 rounded-full bg-slate-700 group-hover:bg-red-500 transition-colors"></span>
                                     Ventuze
                                 </Link>
@@ -169,12 +169,28 @@ export default function Footer() {
 
                 </div>
 
-                {/* DONJI DEO (SUB-FOOTER): Copyright i Društvene mreže */}
-                <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-center gap-4">
+                {/* DONJI DEO (SUB-FOOTER): Copyright, prWeb Dev Credit i Društvene mreže */}
+                <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-around gap-4">
+                    
+                    {/* Copyright */}
                     <p className="text-sm text-slate-500 text-center md:text-left">
                         &copy; {tekućaGodina} Dr Košarac - Kineska Medicina. Sva prava zadržana.
                     </p>
 
+                    {/* Developer Credit */}
+                    <p className="text-sm text-slate-500 text-center">
+                        Development by{" "}
+                        <a
+                            href="https://www.pedjadev.com/" // ZAMENI OVDE SA LINKOM KA TVOM SAJTU/PORTFOLIJU
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-red-500 font-semibold hover:text-red-400 hover:underline transition-colors"
+                        >
+                            prWeb
+                        </a>
+                    </p>
+
+                    {/* Društvene Mreže */}
                     <div className="flex items-center gap-4">
                         <a
                             href="#"
@@ -192,9 +208,10 @@ export default function Footer() {
                             aria-label="Facebook profil"
                             className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-slate-400 hover:bg-red-600 hover:text-white transition-all duration-300"
                         >
-                            <FaFacebook size={18} /> {/* OVO JE PROMENJENO */}
+                            <FaFacebook size={18} />
                         </a>
                     </div>
+
                 </div>
 
             </div>
