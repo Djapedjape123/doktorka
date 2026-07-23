@@ -42,15 +42,45 @@ export default function Page() {
         }
     };
 
+    // SEO: JSON-LD strukturirani podaci za kontakt stranicu i lokalni biznis
+    const contactSchema = {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "name": "Kontakt - Dr Košarac",
+        "description": "Kontakt stranica i forma za zakazivanje tretmana akupunkture u Novom Sadu.",
+        "url": "https://www.drkosarac.rs/kontakt",
+        "mainEntity": {
+            "@type": "MedicalClinic",
+            "name": "Dr Košarac",
+            "telephone": "+381638504589",
+            "email": "ajkosarac@gmail.com",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Hadži Ruvimova", // Dodaj tačan broj
+                "addressLocality": "Novi Sad",
+                "postalCode": "21000",
+                "addressCountry": "RS"
+            }
+        }
+    };
+
     return (
         <main className="w-full bg-slate-50">
+            
+            {/* Ubacivanje strukturiranih podataka za SEO */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
+            />
+
             {/* HEADER SEKCIJA */}
-            <section className="bg-red-700 relative py-20 md:py-28 px-4 text-center overflow-hidden">
+            <section aria-label="Uvod u kontakt stranicu" className="bg-red-700 relative py-20 md:py-28 px-4 text-center overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-red-900/20 via-transparent to-transparent" />
                 <div className="relative max-w-3xl mx-auto">
+                    {/* Skriven, ali semantički važan H1 tekst za Google botove */}
                     <span className="inline-flex items-center gap-2 text-black font-semibold tracking-widest uppercase mb-6 text-sm">
                         <span className="w-8 h-px bg-red-400 inline-block" />
-                        Kontakt
+                        Kontakt ordinacije u Novom Sadu
                         <span className="w-8 h-px bg-red-400 inline-block" />
                     </span>
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
@@ -64,7 +94,7 @@ export default function Page() {
             </section>
 
             {/* GLAVNI SADRŽAJ */}
-            <section className="py-20 px-4">
+            <section aria-label="Kontakt informacije i forma za zakazivanje" className="py-20 px-4">
                 <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-10">
                     {/* LEVA STRANA - KONTAKT INFO */}
                     <div className="lg:col-span-2 space-y-6">
@@ -76,10 +106,11 @@ export default function Page() {
                             <div className="space-y-6">
                                 <a
                                     href="mailto:ajkosarac@gmail.com"
+                                    title="Pošaljite nam email"
                                     className="flex items-start gap-4 group"
                                 >
                                     <div className="bg-red-50 p-3 rounded-xl group-hover:bg-red-600 transition-colors duration-300">
-                                        <Mail className="text-red-600 group-hover:text-white transition-colors duration-300" size={22} />
+                                        <Mail className="text-red-600 group-hover:text-white transition-colors duration-300" size={22} aria-hidden="true" />
                                     </div>
                                     <div>
                                         <span className="block text-sm text-slate-500 mb-1">Email</span>
@@ -89,12 +120,13 @@ export default function Page() {
                                     </div>
                                 </a>
                                 <a
-
-                                    href="tel:0638504589"
+                                    // SEO: Format telefona prilagođen međunarodnom standardu za mobilne uređaje i crawler-e
+                                    href="tel:+381638504589"
+                                    title="Pozovite ordinaciju"
                                     className="flex items-start gap-4 group"
                                 >
                                     <div className="bg-red-50 p-3 rounded-xl group-hover:bg-red-600 transition-colors duration-300">
-                                        <Phone className="text-red-600 group-hover:text-white transition-colors duration-300" size={22} />
+                                        <Phone className="text-red-600 group-hover:text-white transition-colors duration-300" size={22} aria-hidden="true" />
                                     </div>
                                     <div>
                                         <span className="block text-sm text-slate-500 mb-1">Telefon</span>
@@ -107,10 +139,11 @@ export default function Page() {
                                     href="https://maps.google.com/?q=Hadži+Ruvimova+Novi+Sad"
                                     target="_blank"
                                     rel="noopener noreferrer"
+                                    title="Pronađite nas na Google Mapama"
                                     className="flex items-start gap-4 group cursor-pointer"
                                 >
                                     <div className="bg-red-50 p-3 rounded-xl group-hover:bg-red-600 transition-colors duration-300">
-                                        <MapPin className="text-red-600 group-hover:text-white transition-colors duration-300" size={22} />
+                                        <MapPin className="text-red-600 group-hover:text-white transition-colors duration-300" size={22} aria-hidden="true" />
                                     </div>
                                     <div>
                                         <span className="block text-sm text-slate-500 mb-1">Adresa</span>
@@ -121,33 +154,14 @@ export default function Page() {
                                 </a>
                             </div>
                         </div>
-
-                        {/* RADNO VREME */}
-                    </div>        {/* <div className="bg-medical-dark rounded-2xl shadow-lg p-8 text-white">
-              <h3 className="text-xl font-bold mb-4">Radno vreme</h3>
-              <div className="space-y-2 text-slate-300">
-                <div className="flex justify-between">
-                  <span>Ponedeljak - Petak</span>
-                  <span className="font-semibold text-white">09:00 - 19:00</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Subota</span>
-                  <span className="font-semibold text-white">10:00 - 14:00</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Nedelja</span>
-                  <span className="font-semibold text-white">Ne radimo</span>
-                </div>
-              </div>
-            </div> */}
-
+                    </div> 
 
                     {/* DESNA STRANA - FORMA */}
                     <div className="lg:col-span-3">
                         <div className="bg-white rounded-2xl shadow-lg p-8 md:p-10 border border-slate-100">
                             {isSubmitted ? (
                                 <div className="flex flex-col items-center justify-center text-center py-16">
-                                    <CheckCircle2 className="text-green-500 mb-4" size={56} />
+                                    <CheckCircle2 className="text-green-500 mb-4" size={56} aria-hidden="true" />
                                     <h3 className="text-2xl font-bold text-medical-dark mb-2">
                                         Poruka je poslata!
                                     </h3>
@@ -184,6 +198,8 @@ export default function Page() {
                                                 id="ime"
                                                 name="ime"
                                                 required
+                                                // SEO/UX: AutoComplete značajno poboljšava popunjavanje forme
+                                                autoComplete="given-name" 
                                                 value={formData.ime}
                                                 onChange={handleChange}
                                                 className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-red-500 focus:ring-2 focus:ring-red-100 outline-none transition-all"
@@ -202,6 +218,7 @@ export default function Page() {
                                                 id="prezime"
                                                 name="prezime"
                                                 required
+                                                autoComplete="family-name"
                                                 value={formData.prezime}
                                                 onChange={handleChange}
                                                 className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-red-500 focus:ring-2 focus:ring-red-100 outline-none transition-all"
@@ -223,6 +240,7 @@ export default function Page() {
                                                 id="telefon"
                                                 name="telefon"
                                                 required
+                                                autoComplete="tel"
                                                 value={formData.telefon}
                                                 onChange={handleChange}
                                                 className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-red-500 focus:ring-2 focus:ring-red-100 outline-none transition-all"
@@ -240,6 +258,7 @@ export default function Page() {
                                                 type="email"
                                                 id="email"
                                                 name="email"
+                                                autoComplete="email"
                                                 value={formData.email}
                                                 onChange={handleChange}
                                                 className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-red-500 focus:ring-2 focus:ring-red-100 outline-none transition-all"
@@ -270,13 +289,14 @@ export default function Page() {
                                     <button
                                         type="submit"
                                         disabled={isSubmitting}
+                                        aria-label="Pošalji poruku i zahtev za zakazivanje"
                                         className="group w-full flex items-center justify-center gap-2 bg-red-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-red-700 transition-all duration-300 shadow-xl hover:shadow-red-600/50 hover:-translate-y-1 disabled:opacity-60 disabled:hover:translate-y-0"
                                     >
                                         {isSubmitting ? (
                                             "Slanje u toku..."
                                         ) : (
                                             <>
-                                                <Send size={20} className="group-hover:translate-x-1 transition-transform" />
+                                                <Send size={20} className="group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                                                 Pošalji poruku
                                             </>
                                         )}

@@ -49,18 +49,62 @@ export default function Cene() {
     return () => observer.disconnect();
   }, []);
 
+  // SEO: Strukturirani podaci (Schema.org) za cenovnik
+  const pricingSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Cenovnik usluga akupunkture i tradicionalne kineske medicine",
+    "itemListElement": [
+      ...pojedinacneTerapije.map((t, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "item": {
+          "@type": "Service",
+          "name": t.naziv,
+          "description": t.opis || `Profesionalni tretman: ${t.naziv}`,
+          "offers": {
+            "@type": "Offer",
+            "price": t.cena.replace(/[^0-9]/g, ''), // Izvlači samo brojeve, npr. "2500"
+            "priceCurrency": "RSD"
+          }
+        }
+      })),
+      ...paketi.map((p, index) => ({
+        "@type": "ListItem",
+        "position": pojedinacneTerapije.length + index + 1,
+        "item": {
+          "@type": "Service",
+          "name": p.naziv,
+          "description": p.opis,
+          "offers": {
+            "@type": "Offer",
+            "price": p.cena.replace(/[^0-9]/g, ''),
+            "priceCurrency": "RSD"
+          }
+        }
+      }))
+    ]
+  };
+
   return (
     <main className="w-full min-h-screen bg-white">
+      
+      {/* JSON-LD Skripta za Google */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingSchema) }}
+      />
 
       {/* HERO */}
-      <section className="relative py-20 bg-slate-900 overflow-hidden">
+      <section aria-label="Uvod u cenovnik" className="relative py-20 bg-slate-900 overflow-hidden">
         {/* Ambient svetlost */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-red-600/20 rounded-full blur-[120px] pointer-events-none" />
 
         <div className="relative z-10 text-center px-4 max-w-3xl mx-auto">
+          {/* Suptilno ubačena lokacija i širi pojam u span tag za SEO (vizuelno uklopljeno) */}
           <span className="inline-flex items-center gap-2 text-red-400 font-semibold tracking-widest uppercase mb-6 text-sm">
             <span className="w-8 h-px bg-red-400 inline-block" />
-            Cenovnik
+            Cenovnik Tretmana - Novi Sad
             <span className="w-8 h-px bg-red-400 inline-block" />
           </span>
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-[1.1] tracking-tight">
@@ -68,13 +112,13 @@ export default function Cene() {
             <span className="text-red-500">u vaše zdravlje</span>
           </h1>
           <p className="text-slate-400 text-lg max-w-xl mx-auto leading-relaxed">
-            Transparentne cene bez skrivenih troškova. Svaki tretman prilagođen vašim potrebama.
+            Transparentne cene bez skrivenih troškova. Svaki tretman akupunkture i kineske medicine prilagođen je vašim potrebama.
           </p>
         </div>
       </section>
 
       {/* CENOVNIK */}
-      <section ref={sectionRef} className="relative py-24 bg-white overflow-hidden">
+      <section aria-label="Detaljan pregled cena usluga i paketa" ref={sectionRef} className="relative py-24 bg-white overflow-hidden">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
@@ -83,14 +127,14 @@ export default function Cene() {
             <div className={`transition-all duration-700 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
               <div className="flex items-center gap-3 mb-8">
                 <div className="p-2 bg-slate-100 rounded-lg">
-                  <Layers size={18} className="text-slate-600" />
+                  <Layers size={18} className="text-slate-600" aria-hidden="true" />
                 </div>
                 <h2 className="text-xl font-bold text-slate-800 tracking-tight">Pojedinačne terapije</h2>
               </div>
 
               <div className="divide-y divide-slate-100">
                 {pojedinacneTerapije.map((t, i) => (
-                  <div
+                  <article
                     key={i}
                     className={`py-5 group transition-all duration-500`}
                     style={{ transitionDelay: `${i * 80 + 200}ms` }}
@@ -104,15 +148,15 @@ export default function Cene() {
                           <p className="text-sm text-slate-600 mt-0.5">{t.opis}</p>
                         )}
                         <div className="flex items-center gap-1.5 mt-2">
-                          <Clock size={12} className="text-red-400 shrink-0" />
-                          <span className="text-xs text-slate-600">{t.trajanje}</span>
+                          <Clock size={12} className="text-red-400 shrink-0" aria-hidden="true" />
+                          <span className="text-xs text-slate-600">Trajanje: {t.trajanje}</span>
                         </div>
                       </div>
-                      <span className="text-lg font-bold text-slate-900 whitespace-nowrap tabular-nums shrink-0">
+                      <span className="text-lg font-bold text-slate-900 whitespace-nowrap tabular-nums shrink-0" aria-label={`Cena: ${t.cena}`}>
                         {t.cena}
                       </span>
                     </div>
-                  </div>
+                  </article>
                 ))}
               </div>
             </div>
@@ -121,14 +165,14 @@ export default function Cene() {
             <div className={`transition-all duration-700 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
               <div className="flex items-center gap-3 mb-8">
                 <div className="p-2 bg-red-50 rounded-lg">
-                  <Sparkles size={18} className="text-red-500" />
+                  <Sparkles size={18} className="text-red-500" aria-hidden="true" />
                 </div>
                 <h2 className="text-xl font-bold text-slate-800 tracking-tight">Kombinovani paketi</h2>
               </div>
 
               <div className="space-y-5">
                 {paketi.map((p, i) => (
-                  <div
+                  <article
                     key={i}
                     className="relative rounded-2xl border border-slate-200 hover:border-red-300 p-6 transition-all duration-300 hover:shadow-lg hover:shadow-red-500/5 group bg-white"
                   >
@@ -142,7 +186,7 @@ export default function Cene() {
                         {p.naziv}
                       </h3>
                       <div className="text-right shrink-0">
-                        <span className="block text-2xl font-bold text-red-600 tabular-nums">
+                        <span className="block text-2xl font-bold text-red-600 tabular-nums" aria-label={`Cena paketa: ${p.cena}`}>
                           {p.cena}
                         </span>
                       </div>
@@ -151,10 +195,10 @@ export default function Cene() {
                     <p className="text-sm text-slate-500 leading-relaxed mb-4">{p.opis}</p>
 
                     <div className="flex items-center gap-2 pt-3 border-t border-slate-100">
-                      <Clock size={13} className="text-red-400" />
-                      <span className="text-xs text-slate-600 font-medium">{p.trajanje}</span>
+                      <Clock size={13} className="text-red-400" aria-hidden="true" />
+                      <span className="text-xs text-slate-600 font-medium">Trajanje: {p.trajanje}</span>
                     </div>
-                  </div>
+                  </article>
                 ))}
               </div>
 
@@ -164,11 +208,11 @@ export default function Cene() {
                   href="https://www.fresha.com/book-now/aku-nutri-zcaukxar/all-offer?share=true&pId=3049914"
                   target="_blank"
                   rel="noopener noreferrer"
-                  title="Zakažite pregled i akupunkturu online"
+                  title="Zakažite pregled i akupunkturu online preko Fresha platforme"
                   aria-label="Zakažite pregled online preko platforme"
                   className="group flex items-center justify-center gap-2.5 w-full bg-slate-900 hover:bg-red-600 text-white px-8 py-4 rounded-xl font-bold text-base transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-red-600/30"
                 >
-                  <CalendarDays size={18} className="group-hover:scale-110 transition-transform" />
+                  <CalendarDays size={18} className="group-hover:scale-110 transition-transform" aria-hidden="true" />
                   Zakažite termin
                 </a>
                 <p className="text-center text-xs text-slate-400 mt-3">

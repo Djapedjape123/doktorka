@@ -1,291 +1,342 @@
 "use client";
+
 import { useState } from "react";
 import Link from "next/link";
-import { CheckCircle2, XCircle, ChevronRight, CalendarDays, Brain } from "lucide-react";
+import { ChevronRight, Leaf, Activity, Sparkles, RefreshCcw, CalendarDays } from "lucide-react";
 
+// --- PITANJA I ODGOVORI ---
 const pitanja = [
   {
     id: 1,
-    tvrdnja: "Akupunktura je izuzetno bolna",
-    odgovor: "MIT",
-    objasnjenje:
-      "Igle su ekstremno tanke i fleksibilne — potpuno drugačije od medicinskih igala za injekcije. Pacijenti uglavnom osećaju blago peckanje, trnjenje ili toplinu. Taj osećaj se zove De Qi efekat i potvrđuje da je stimulisana prava tačka na telu.",
+    pitanje: "Gde trenutno osećate najveću nelagodu ili disbalans u telu?",
+    odgovori: [
+      { text: "Primećujem umor na licu, gubitak tonusa kože, izražene podočnjake ili napetost u vilici.", tip: "C" },
+      { text: "Osećam opšti umor, imam česte glavobolje, probleme sa snom, hormonima ili varenjem.", tip: "A" },
+      { text: "Imam jake bolove u leđima, ukočenost mišića, ili osećaj težine i zadržavanja vode.", tip: "B" },
+    ],
   },
   {
     id: 2,
-    tvrdnja: "Akupunktura deluje samo kao placebo",
-    odgovor: "MIT",
-    objasnjenje:
-      "Studije National Institutes of Health dokazuju merljive biohemijske promene u organizmu. Ključan dokaz: metoda uspešno deluje na životinje i malu decu — kod kojih svesni placebo efekat ne postoji. Stimuliše centralni nervni sistem i oslobađa prirodne analgetike.",
+    pitanje: "Kako se svakodnevni stres najčešće manifestuje na vaš organizam?",
+    odgovori: [
+        { text: "Kroz fizički grč, najčešće u predelu ramena i lopatica, uz osećaj hroničnog manjka energije.", tip: "B" },
+        { text: "Kroz unutrašnji nemir, anksioznost, pad imuniteta i nemogućnost opuštanja pred spavanje.", tip: "A" },
+      { text: "Kroz loš ten, pojavu bora od mrštenja, sivilo lica i nadutost (otoke).", tip: "C" },
+    ],
   },
   {
     id: 3,
-    tvrdnja: "Akupunktura pomaže isključivo kod hroničnog bola",
-    odgovor: "MIT",
-    objasnjenje:
-      "Opseg delovanja je znatno širi od samog bola. Efikasno redukuje stres, anksioznost i nivo kortizola. Pomaže kod digestivnih problema (nadutost, IBS), ginekoloških smetnji, steriliteta i jačanja imuniteta.",
+    pitanje: "Kako biste opisali svoju cirkulaciju i trenutno stanje tkiva?",
+    odgovori: [
+      { text: "Energija mi varira, ponekad osećam trnjenje, a telo mi traži duboki unutrašnji balans.", tip: "A" },
+      { text: "Želim bolju mikrocirkulaciju lica, prirodni sjaj i smanjenje zadržavanja tečnosti oko očiju.", tip: "C" },
+      { text: "Često mi je hladno, imam mišićne čvorove ili problem sa upornim celulitom.", tip: "B" },
+    ],
   },
   {
     id: 4,
-    tvrdnja: "Akupunktura isključuje modernu zapadnu medicinu",
-    odgovor: "MIT",
-    objasnjenje:
-      "Akupunktura se danas primenjuje kao komplementarna grana medicine — ne kao zamena. Lekari je često preporučuju uporedo sa fizikalnom terapijom ili standardnim lekovima, a pomaže pacijentima da smanje upotrebu opijata i antiinflamatornih lekova.",
+    pitanje: "Koji tip terapijskog osećaja vam u ovom trenutku najviše prija?",
+    odgovori: [
+      { text: "Duboko unutrašnje smirenje i suptilno balansiranje rada unutrašnjih organa.", tip: "A" },
+      { text: "Intenzivniji rad na telu, osećaj izvlačenja napetosti i duboko zagrevanje tkiva.", tip: "B" },
+      { text: "Blagi, ritmični pokreti koji rade limfnu drenažu, opuštaju i daju instant svežinu koži.", tip: "C" },
+    ],
   },
   {
     id: 5,
-    tvrdnja: "Akupunkturni tretmani su rizični i nehigijanski",
-    odgovor: "MIT",
-    objasnjenje:
-      "Rizik od infekcija je minimalan. Danas se koriste isključivo sterilne, jednokratne igle od nerđajućeg čelika koje se bacaju odmah nakon upotrebe. Biranje sertifikovanog terapeuta garantuje bezbedan tretman po međunarodnim standardima.",
+    pitanje: "Šta je vaš glavni cilj nakon završetka serije tretmana?",
+    odgovori: [
+      { text: "Da rešim hronične zdravstvene tegobe, vratim vitalnost i uspostavim hormonski balans.", tip: "A" },
+      { text: "Da se konačno oslobodim bolova u leđima, izbacim toksine i poboljšam konture tela.", tip: "B" },
+      { text: "Da izgledam odmorno, podmladim kožu prirodnim putem i skinem 'težinu' sa lica i vrata.", tip: "C" },
+    ],
   },
 ];
 
-type Izbor = "MIT" | "ISTINA";
-
-export default function Page() {
-  const [trenutno, setTrenutno] = useState(0);
-  const [odgovori, setOdgovori] = useState<(Izbor | null)[]>(
-    Array(pitanja.length).fill(null)
-  );
-  const [otkriveno, setOtkriveno] = useState(false);
-  const [zavrseno, setZavrseno] = useState(false);
-
-  const pitanje = pitanja[trenutno];
-  const izabrano = odgovori[trenutno];
-  const tacnih = odgovori.filter((o, i) => o === pitanja[i].odgovor).length;
-
-  function handleIzbor(izbor: Izbor) {
-    if (otkriveno) return;
-    const novi = [...odgovori];
-    novi[trenutno] = izbor;
-    setOdgovori(novi);
-    setOtkriveno(true);
+// --- REZULTATI ---
+const rezultati = {
+  A: {
+    naslov: "Akupunktura & Moksibustija",
+    podnaslov: "Vašem telu je potreban duboki unutrašnji balans.",
+    opis: "Vaši odgovori ukazuju na sistemski disbalans, hroničan stres ili tegobe unutrašnjih organa. Akupunktura (u kombinaciji sa toplotom moksibustije) će direktno stimulisati vaš nervni sistem, osloboditi endorfine i probuditi prirodnu moć samoisceljenja vašeg organizma.",
+    ikona: <Leaf size={40} className="text-emerald-500" aria-hidden="true" />,
+    boja: "emerald",
+    linkovi: [{ url: "/akupunktura", tekst: "Saznaj više o Akupunkturi" }]
+  },
+  B: {
+    naslov: "Vakuum Terapija (Ventuze)",
+    podnaslov: "Vašem telu je potrebno oslobađanje od spazma i toksina.",
+    opis: "Fokus vaših problema leži u nagomilanoj fizičkoj napetosti, bolovima u mišićima i lošoj cirkulaciji. Terapija ventuzama će kroz kontrolisani vakuum dubinski opustiti fasciju, izvući toksine na površinu i vratiti vam lakoću pokreta.",
+    ikona: <Activity size={40} className="text-teal-500" aria-hidden="true" />,
+    boja: "teal",
+    linkovi: [{ url: "/ventuze", tekst: "Saznaj više o Ventuzama" }]
+  },
+  C: {
+    naslov: "Gua Sha & Estetska Akupunktura",
+    podnaslov: "Vašem telu je potrebna regeneracija i limfna drenaža.",
+    opis: "Stres se kod vas dominantno manifestuje na površini – kroz umor lica, pad tonusa i napetost u vratu. Gua Sha masaža će fantastično pokrenuti limfu, smanjiti otoke i vratiti prirodni sjaj, delujući kao potpuno prirodni facelift.",
+    ikona: <Sparkles size={40} className="text-rose-500" aria-hidden="true" />,
+    boja: "rose",
+    linkovi: [{ url: "/guasha", tekst: "Saznaj više o Gua Sha" }]
+  },
+  // Kombinovani rezultati
+  AB: {
+    naslov: "Sveobuhvatni Oporavak (Akupunktura + Ventuze)",
+    podnaslov: "Vašem telu je potreban i unutrašnji balans i fizičko opuštanje.",
+    opis: "Vaši odgovori pokazuju da vam je potreban duboki sistemski balans, ali i brzo oslobađanje od mišićnog bola. Najbolji rezultati se postižu kada se na konsultaciji dogovorimo o kombinovanju akupunkture (za nervni sistem) i ventuza (za mišiće).",
+    ikona: <Activity size={40} className="text-blue-500" aria-hidden="true" />,
+    boja: "blue",
+    linkovi: [{ url: "/akupunktura", tekst: "Akupunktura" }, { url: "/ventuze", tekst: "Ventuze" }]
+  },
+  AC: {
+    naslov: "Unutrašnja & Spoljašnja Regeneracija (Akupunktura + Gua Sha)",
+    podnaslov: "Rešavamo uzrok i brišemo posledice stresa.",
+    opis: "Pokazujete simptome unutrašnjeg disbalansa koji se jako oslikava na vašem licu. Kombinacijom akupunkture (za hormonski/nervni balans) i Gua Sha (za tonus i svežinu kože lica), vraćamo zdravlje i lepotu istovremeno.",
+    ikona: <Sparkles size={40} className="text-purple-500" aria-hidden="true" />,
+    boja: "purple",
+    linkovi: [{ url: "/akupunktura", tekst: "Akupunktura" }, { url: "/guasha", tekst: "Gua Sha" }]
+  },
+  BC: {
+    naslov: "Aktivna Detoksikacija (Ventuze + Gua Sha)",
+    podnaslov: "Fokus na limfnoj drenaži celog tela.",
+    opis: "Vaš fokus je na oslobađanju toksina, viška tečnosti i tenzije. Ova moćna kombinacija vakuum terapije za leđa i Gua Sha struganja za vrat i lice savršeno pokreće limfu i vraća neverovatnu lakoću vašem organizmu.",
+    ikona: <Leaf size={40} className="text-orange-500" aria-hidden="true" />,
+    boja: "orange",
+    linkovi: [{ url: "/ventuze", tekst: "Ventuze" }, { url: "/guasha", tekst: "Gua Sha" }]
   }
+};
 
-  
+type RezultatKljuc = keyof typeof rezultati;
 
-  function handleSledece() {
+export default function UpoznajSvojBalans() {
+  const [trenutno, setTrenutno] = useState(0);
+  const [odgovori, setOdgovori] = useState<string[]>([]);
+  const [zavrseno, setZavrseno] = useState(false);
+  const [analiziranje, setAnaliziranje] = useState(false);
+  const [konacniRezultat, setKonacniRezultat] = useState<RezultatKljuc | null>(null);
+
+  const izracunajRezultat = (sviOdgovori: string[]) => {
+    const brojac = { A: 0, B: 0, C: 0 };
+    sviOdgovori.forEach((odg) => {
+      brojac[odg as keyof typeof brojac]++;
+    });
+
+    const maxPoeni = Math.max(brojac.A, brojac.B, brojac.C);
+    
+    const pobednici = Object.keys(brojac).filter(
+      (kljuc) => brojac[kljuc as keyof typeof brojac] === maxPoeni
+    );
+
+    if (pobednici.length === 1) {
+      return pobednici[0] as RezultatKljuc; 
+    } else {
+      return pobednici.sort().join("") as RezultatKljuc; 
+    }
+  };
+
+  const handleIzbor = (tip: string) => {
+    const noviOdgovori = [...odgovori, tip];
+    setOdgovori(noviOdgovori);
+
     if (trenutno < pitanja.length - 1) {
       setTrenutno(trenutno + 1);
-      setOtkriveno(false);
     } else {
-      setZavrseno(true);
+      setAnaliziranje(true);
+      setTimeout(() => {
+        setKonacniRezultat(izracunajRezultat(noviOdgovori));
+        setAnaliziranje(false);
+        setZavrseno(true);
+      }, 1500); 
     }
-  }
+  };
 
-  function handleReset() {
+  const resetKviz = () => {
     setTrenutno(0);
-    setOdgovori(Array(pitanja.length).fill(null));
-    setOtkriveno(false);
+    setOdgovori([]);
     setZavrseno(false);
-  }
+    setKonacniRezultat(null);
+  };
 
-  function getKarticaStil(izbor: Izbor) {
-    if (!otkriveno) {
-      return "border-slate-200 bg-white hover:border-red-300 hover:shadow-md cursor-pointer";
-    }
-    const jeTacan = izbor === pitanje.odgovor;
-    const jeIzabran = izabrano === izbor;
+  // SEO: Schema.org za MedicalWebPage
+  const quizSchema = {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    "name": "Holistička procena stanja organizma",
+    "description": "Kviz koji vam pomaže da saznate da li je za vas idealna akupunktura, ventuze ili Gua Sha masaža.",
+    "about": [
+      { "@type": "MedicalProcedure", "name": "Akupunktura" },
+      { "@type": "MedicalProcedure", "name": "Ventuze" },
+      { "@type": "MedicalProcedure", "name": "Gua Sha" }
+    ]
+  };
 
-    if (jeTacan) {
-      return "border-emerald-400 bg-emerald-50 shadow-emerald-100 shadow-lg cursor-default";
-    }
-    if (jeIzabran && !jeTacan) {
-      return "border-red-400 bg-red-50 shadow-red-100 shadow-lg cursor-default animate-shake";
-    }
-    return "border-slate-100 bg-slate-50 opacity-50 cursor-default";
-  }
-
-  if (zavrseno) {
+  // --- RENDER ZAVRŠNOG EKRANA ---
+  if (zavrseno && konacniRezultat) {
+    const res = rezultati[konacniRezultat];
     return (
-      <main className="min-h-screen bg-slate-900 flex items-center justify-center px-4 py-20">
-        <div className="max-w-lg w-full text-center">
-          <div className="text-7xl mb-6">
-            {tacnih === pitanja.length ? "🏆" : tacnih >= 3 ? "🎯" : "💡"}
-          </div>
-          <h2 className="text-4xl font-bold text-white mb-3">
-            Tačnih odgovora:{" "}
-            <span className="text-red-500">{tacnih}/{pitanja.length}</span>
-          </h2>
-          <p className="text-slate-400 mb-10 text-lg">
-            {tacnih === pitanja.length
-              ? "Savršeno! Već ste dobro upoznati sa akupunkturom."
-              : tacnih >= 3
-              ? "Dobro poznajete temu! Ostalo ćemo razjasniti na konsultaciji."
-              : "Akupunktura krije mnogo iznenađenja. Zakažite konsultaciju i saznajte više!"}
-          </p>
+      <main className="min-h-screen bg-slate-50 flex items-center justify-center px-4 py-28 relative overflow-hidden" aria-live="polite">
+        
+        {/* Dekorativna Zanimljiva Pozadina */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+          <div className="absolute -top-[10%] -left-[10%] w-[50vw] h-[50vw] rounded-full bg-teal-200/40 blur-[100px] mix-blend-multiply"></div>
+          <div className="absolute top-[20%] -right-[10%] w-[40vw] h-[40vw] rounded-full bg-rose-200/40 blur-[100px] mix-blend-multiply animate-pulse"></div>
+          <div className="absolute -bottom-[20%] left-[20%] w-[60vw] h-[60vw] rounded-full bg-emerald-100/50 blur-[120px] mix-blend-multiply"></div>
+        </div>
 
-          <div className="space-y-3 mb-10">
-            {pitanja.map((p, i) => (
-              <div
-                key={p.id}
-                className="flex items-center gap-3 bg-white/5 rounded-xl px-4 py-3 text-left"
-              >
-                {odgovori[i] === p.odgovor ? (
-                  <CheckCircle2 size={18} className="text-emerald-400 shrink-0" />
-                ) : (
-                  <XCircle size={18} className="text-red-400 shrink-0" />
-                )}
-                <span className="text-slate-300 text-sm">{p.tvrdnja}</span>
-                <span className="ml-auto text-xs font-bold text-slate-500 shrink-0">
-                  {p.odgovor}
-                </span>
+        <article className="max-w-2xl w-full animate-in fade-in zoom-in duration-500 relative z-10">
+          <div className="bg-white/90 backdrop-blur-md rounded-3xl p-8 md:p-12 shadow-2xl shadow-slate-200/50 border border-white text-center relative overflow-hidden">
+            <div className={`absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-${res.boja}-100 rounded-full blur-3xl opacity-50`}></div>
+            
+            <div className={`w-20 h-20 mx-auto bg-${res.boja}-50 rounded-2xl flex items-center justify-center mb-8 relative z-10 shadow-sm border border-${res.boja}-100`}>
+              {res.ikona}
+            </div>
+            
+            <h2 className={`text-sm font-bold text-${res.boja}-600 uppercase tracking-widest mb-3 relative z-10`}>
+              Analiza završena
+            </h2>
+            <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 relative z-10">
+              {res.naslov}
+            </h3>
+            <p className="text-lg font-medium text-slate-700 mb-6 relative z-10">
+              {res.podnaslov}
+            </p>
+            <p className="text-slate-600 leading-relaxed mb-10 relative z-10">
+              {res.opis}
+            </p>
+
+            <div className="flex flex-col gap-4 relative z-10">
+              <div className="flex flex-wrap justify-center gap-3">
+                {res.linkovi.map((link, idx) => (
+                  <Link 
+                    key={idx} 
+                    href={link.url}
+                    title={`Saznaj više informacija o usluzi: ${link.tekst}`}
+                    className="flex-1 min-w-[200px] border border-slate-200 text-slate-700 hover:border-slate-400 bg-slate-50 hover:bg-slate-100 px-6 py-3 rounded-xl font-semibold transition-all text-center"
+                  >
+                    {link.tekst}
+                  </Link>
+                ))}
               </div>
-            ))}
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-4">
-            <button
-              onClick={handleReset}
-              className="flex-1 border border-slate-600 text-slate-300 hover:border-slate-400 hover:text-white px-6 py-3 rounded-xl font-semibold transition-all"
-            >
-              Igraj ponovo
-            </button>
-            <a
-                href="https://www.fresha.com/book-now/aku-nutri-zcaukxar/all-offer?share=true&pId=3049914"
-                
+             <a
+                href="https://www.fresha.com/book-now/aku-nutri-zcaukxar/all-offer?share=true&pId=3049914"               
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Zakažite pregled i akupunkturu online"
-                aria-label="Zakažite pregled online preko platforme"
+                aria-label="Zakažite pregled online preko platforme Fresha"
                 className="flex items-center justify-center gap-2 bg-rose-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-rose-700 transition-all duration-300 shadow-xl shadow-rose-600/30 hover:-translate-y-1"
               >
-                <CalendarDays size={20} />
+                <CalendarDays size={20} aria-hidden="true" />
                 Zakažite online
               </a>
+              <button 
+                onClick={resetKviz}
+                title="Pokrenite kviz ispočetka"
+                className="mt-4 flex items-center justify-center gap-2 text-sm text-slate-400 hover:text-slate-600 font-medium transition-colors"
+              >
+                <RefreshCcw size={16} aria-hidden="true" /> Popunite kviz ponovo
+              </button>
+            </div>
           </div>
+        </article>
+      </main>
+    );
+  }
+
+  // --- RENDER EKRANA ZA UČITAVANJE ---
+  if (analiziranje) {
+    return (
+      <main className="min-h-screen bg-slate-50 flex items-center justify-center px-4 relative overflow-hidden" aria-live="polite">
+        
+        {/* Dekorativna Zanimljiva Pozadina */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+          <div className="absolute -top-[10%] -left-[10%] w-[50vw] h-[50vw] rounded-full bg-teal-200/40 blur-[100px] mix-blend-multiply"></div>
+          <div className="absolute top-[20%] -right-[10%] w-[40vw] h-[40vw] rounded-full bg-rose-200/40 blur-[100px] mix-blend-multiply animate-pulse"></div>
+          <div className="absolute -bottom-[20%] left-[20%] w-[60vw] h-[60vw] rounded-full bg-emerald-100/50 blur-[120px] mix-blend-multiply"></div>
+        </div>
+
+        <div className="text-center animate-pulse relative z-10">
+          <div className="w-16 h-16 border-4 border-slate-200 border-t-teal-600 rounded-full animate-spin mx-auto mb-6 shadow-lg" aria-hidden="true"></div>
+          <h2 className="text-2xl font-bold text-slate-800 mb-2">Analiziramo vaš balans...</h2>
+          <p className="text-slate-600 font-medium">Povezujemo simptome sa tehnikama tradicionalne medicine.</p>
         </div>
       </main>
     );
   }
 
-  return (
-    <main className="min-h-screen bg-slate-900">
-      {/* HERO */}
-      <section className="relative pt-36 pb-16 px-4 text-center overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[250px] bg-red-700/20 rounded-full blur-[100px] pointer-events-none" />
-        <div className="relative max-w-2xl mx-auto">
-          <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-2 mb-6">
-            <Brain size={14} className="text-red-400" />
-            <span className="text-xs font-semibold text-slate-400 uppercase tracking-widest">
-              Proverite svoje znanje
-            </span>
-          </div>
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
-            Mit ili <span className="text-red-500">Istina?</span>
-          </h1>
-          <p className="text-slate-400 text-lg max-w-md mx-auto">
-            Koliko zaista znate o akupunkturi? Izaberite odgovor za svaku tvrdnju.
-          </p>
-        </div>
-      </section>
+  // --- RENDER GLAVNOG KVIZA ---
+  const pitanje = pitanja[trenutno];
 
-      {/* PROGRESS BAR */}
-      <div className="max-w-2xl mx-auto px-4 mb-8">
-        <div className="flex justify-between text-xs text-slate-500 mb-2">
-          <span>Pitanje {trenutno + 1} od {pitanja.length}</span>
-          <span>{Math.round(((trenutno) / pitanja.length) * 100)}% završeno</span>
-        </div>
-        <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
-          <div
-            className="h-full bg-red-600 rounded-full transition-all duration-500"
-            style={{ width: `${(trenutno / pitanja.length) * 100}%` }}
-          />
-        </div>
+  return (
+    <main className="min-h-screen bg-slate-900 flex flex-col relative overflow-hidden pt-28 pb-12">
+      
+      {/* Ubacivanje strukturiranih podataka */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(quizSchema) }}
+      />
+
+      {/* Dekorativna Zanimljiva Pozadina */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <div className="absolute -top-[10%] -left-[10%] w-[50vw] h-[50vw] rounded-full bg-teal-200/40 blur-[100px] mix-blend-multiply"></div>
+        <div className="absolute top-[20%] -right-[10%] w-[40vw] h-[40vw] rounded-full bg-rose-200/40 blur-[100px] mix-blend-multiply animate-pulse"></div>
+        <div className="absolute -bottom-[20%] left-[20%] w-[60vw] h-[60vw] rounded-full bg-emerald-100/50 blur-[120px] mix-blend-multiply"></div>
       </div>
 
-      {/* KVIZ KARTICA */}
-      <section className="max-w-2xl mx-auto px-4 pb-24">
-        {/* Tvrdnja */}
-        <div className="bg-white/5 border border-white/10 rounded-2xl p-8 mb-6 text-center">
-          <span className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4 block">
-            Tvrdnja
+      <div className="flex-1 flex flex-col max-w-3xl mx-auto w-full px-4 relative z-10">
+        
+        {/* HEADER KVIZA */}
+        <header className="text-center mb-10">
+          <span className="text-teal-600 font-bold uppercase tracking-widest text-sm mb-2 block">
+            Holistička procena
           </span>
-          <p className="text-2xl md:text-3xl font-bold text-white leading-snug">
-            "{pitanje.tvrdnja}"
-          </p>
-        </div>
+          <h1 className="text-3xl md:text-4xl font-bold text-slate-900 drop-shadow-sm text-white">
+            Upoznajte svoj balans
+          </h1>
+        </header>
 
-        {/* Dugmad za izbor */}
-        <div className="grid grid-cols-2 gap-4 mb-6">
-          {(["MIT", "ISTINA"] as Izbor[]).map((izbor) => {
-            const jeTacan = izbor === pitanje.odgovor;
-            const jeIzabran = izabrano === izbor;
-
-            return (
-              <button
-                key={izbor}
-                onClick={() => handleIzbor(izbor)}
-                className={`relative rounded-2xl border-2 p-6 text-center transition-all duration-300 ${getKarticaStil(izbor)}`}
-              >
-                {/* Ikonica posle otkrivanja */}
-                {otkriveno && jeTacan && (
-                  <CheckCircle2
-                    size={22}
-                    className="text-emerald-500 mx-auto mb-2"
-                  />
-                )}
-                {otkriveno && jeIzabran && !jeTacan && (
-                  <XCircle size={22} className="text-red-500 mx-auto mb-2" />
-                )}
-
-                <span
-                  className={`text-2xl font-black tracking-widest ${
-                    otkriveno && jeTacan
-                      ? "text-emerald-700"
-                      : otkriveno && jeIzabran && !jeTacan
-                      ? "text-red-700"
-                      : "text-slate-700"
-                  }`}
-                >
-                  {izbor}
-                </span>
-
-                {!otkriveno && (
-                  <p className="text-xs text-slate-400 mt-1">
-                    {izbor === "MIT"
-                      ? "Ova tvrdnja nije tačna"
-                      : "Ova tvrdnja je tačna"}
-                  </p>
-                )}
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Objasnjenje - pojavljuje se posle klika */}
-        {otkriveno && (
-          <div className="bg-white/5 border border-white/10 rounded-2xl p-6 mb-6 animate-in fade-in slide-in-from-bottom-2 duration-400">
-            <div className="flex items-center gap-2 mb-3">
-              <span className="text-xs font-bold uppercase tracking-widest text-red-400">
-                ✦ Objašnjenje
-              </span>
-            </div>
-            <p className="text-slate-300 leading-relaxed">{pitanje.objasnjenje}</p>
+        {/* PROGRESS BAR */}
+        <div className="mb-12" aria-label="Napredak procene">
+          <div className="flex justify-between text-xs font-bold text-slate-200 uppercase tracking-wider mb-3">
+            <span>Pitanje {trenutno + 1} od {pitanja.length}</span>
           </div>
-        )}
-
-        {/* Sledece dugme */}
-        {otkriveno && (
-          <button
-            onClick={handleSledece}
-            className="w-full flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white py-4 rounded-xl font-bold text-lg transition-all hover:-translate-y-0.5 shadow-xl shadow-red-900/30 animate-in fade-in duration-300"
+          <div 
+            className="h-2 bg-slate-700 rounded-full overflow-hidden shadow-inner" 
+            role="progressbar" 
+            aria-valuenow={Math.round(((trenutno) / pitanja.length) * 100)} 
+            aria-valuemin={0} 
+            aria-valuemax={100}
           >
-            {trenutno < pitanja.length - 1 ? (
-              <>
-                Sledeće pitanje
-                <ChevronRight size={20} />
-              </>
-            ) : (
-              <>
-                Vidi rezultate
-                <ChevronRight size={20} />
-              </>
-            )}
-          </button>
-        )}
-      </section>
+            <div
+              className="h-full bg-teal-500 rounded-full transition-all duration-500 ease-out"
+              style={{ width: `${((trenutno) / pitanja.length) * 100}%` }}
+            />
+          </div>
+        </div>
+
+        {/* KARTICA SA PITANJEM I ODGOVORIMA */}
+        <section aria-live="polite" className="bg-white/90 backdrop-blur-md rounded-3xl p-6 md:p-10 shadow-xl shadow-slate-200/50 border border-white flex-1 flex flex-col">
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-8 text-center leading-snug">
+            {pitanje.pitanje}
+          </h2>
+
+          <div className="flex flex-col gap-4 mt-auto">
+            {pitanje.odgovori.map((odg, idx) => (
+              <button
+                key={idx}
+                onClick={() => handleIzbor(odg.tip)}
+                className="w-full text-left bg-white/50 hover:bg-teal-50 border border-slate-200 hover:border-teal-300 shadow-sm hover:shadow-md p-5 rounded-2xl transition-all duration-300 group flex items-center justify-between"
+              >
+                <span className="text-slate-700 font-medium leading-relaxed pr-4 group-hover:text-teal-900">
+                  {odg.text}
+                </span>
+                <div className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center shrink-0 group-hover:bg-teal-500 group-hover:border-teal-500 transition-colors">
+                  <ChevronRight size={16} className="text-slate-400 group-hover:text-white" aria-hidden="true" />
+                </div>
+              </button>
+            ))}
+          </div>
+        </section>
+      </div>
     </main>
   );
 }

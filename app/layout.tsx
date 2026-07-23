@@ -88,7 +88,7 @@ export default function RootLayout({
     "telephone": "+381638504589", // UNESI PRAVI BROJ
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Hadzi Rumivova", // UNESI ADRESU
+      "streetAddress": "Hadzi Ruvimova", // UNESI ADRESU
       "addressLocality": "Novi Sad",
       "postalCode": "21000",
       "addressCountry": "RS"
