@@ -160,13 +160,17 @@ export default function Cene() {
 
               {/* CTA */}
               <div className="mt-8">
-                <Link
-                  href="/kontakt"
+                <a
+                  href="https://www.fresha.com/book-now/aku-nutri-zcaukxar/all-offer?share=true&pId=3049914"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Zakažite pregled i akupunkturu online"
+                  aria-label="Zakažite pregled online preko platforme"
                   className="group flex items-center justify-center gap-2.5 w-full bg-slate-900 hover:bg-red-600 text-white px-8 py-4 rounded-xl font-bold text-base transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-red-600/30"
                 >
                   <CalendarDays size={18} className="group-hover:scale-110 transition-transform" />
                   Zakažite termin
-                </Link>
+                </a>
                 <p className="text-center text-xs text-slate-400 mt-3">
                   Konsultacija pre prvog tretmana je besplatna
                 </p>

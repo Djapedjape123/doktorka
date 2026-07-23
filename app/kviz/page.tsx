@@ -203,13 +203,17 @@ export default function UpoznajSvojBalans() {
                   </Link>
                 ))}
               </div>
-              <Link
-                href="/kontakt"
-                className={`w-full flex items-center justify-center gap-2 bg-${res.boja}-600 hover:bg-${res.boja}-700 text-white px-6 py-4 rounded-xl font-bold transition-all shadow-lg shadow-${res.boja}-600/30`}
+             <a
+                href="https://www.fresha.com/book-now/aku-nutri-zcaukxar/all-offer?share=true&pId=3049914"               
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Zakažite pregled i akupunkturu online"
+                aria-label="Zakažite pregled online preko platforme"
+                className="flex items-center justify-center gap-2 bg-rose-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-rose-700 transition-all duration-300 shadow-xl shadow-rose-600/30 hover:-translate-y-1"
               >
                 <CalendarDays size={20} />
-                Zakažite konsultaciju i tretman
-              </Link>
+                Zakažite online
+              </a>
               <button 
                 onClick={resetKviz}
                 className="mt-4 flex items-center justify-center gap-2 text-sm text-slate-400 hover:text-slate-600 font-medium transition-colors"

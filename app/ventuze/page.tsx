@@ -80,7 +80,7 @@ export default function VentuzePage() {
 
     return (
         <main className="w-full min-h-screen bg-slate-50 pb-0">
-            
+
             {/* SEO: Strukturirani podaci za Rich Snippets */}
             <script
                 type="application/ld+json"
@@ -128,8 +128,8 @@ export default function VentuzePage() {
                                             // LCP Optimizacija: prva slika se učitava odmah
                                             loading={index === 0 ? "eager" : "lazy"}
                                             className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-in-out ${index === trenutnaSlika
-                                                    ? "opacity-100 group-hover:scale-105"
-                                                    : "opacity-0 scale-100"
+                                                ? "opacity-100 group-hover:scale-105"
+                                                : "opacity-0 scale-100"
                                                 }`}
                                         />
                                     ))}
@@ -400,15 +400,17 @@ export default function VentuzePage() {
                             Bilo da tražite rešenje za uporne bolove u leđima ili želite efikasnu borbu protiv celulita, ventuze su pravo rešenje za vas.
                         </p>
                         <div className="flex flex-col sm:flex-row justify-center gap-4">
-                            <Link
-                                href="#"
-                                title="Zakažite online termin za ventuze"
-                                aria-label="Kliknite ovde da zakažete online termin za terapiju ventuzama"
-                                className="flex items-center justify-center gap-2 bg-teal-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-teal-700 transition-all duration-300 shadow-xl shadow-teal-600/30 hover:-translate-y-1"
+                            <a
+                                href="https://www.fresha.com/book-now/aku-nutri-zcaukxar/all-offer?share=true&pId=3049914"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                title="Zakažite pregled i akupunkturu online"
+                                aria-label="Zakažite pregled online preko platforme"
+                                className="flex items-center justify-center gap-2 bg-rose-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-rose-700 transition-all duration-300 shadow-xl shadow-rose-600/30 hover:-translate-y-1"
                             >
-                                <CalendarDays size={20} aria-hidden="true" />
+                                <CalendarDays size={20} />
                                 Zakažite online
-                            </Link>
+                            </a>
                         </div>
                     </FadeIn>
                 </div>

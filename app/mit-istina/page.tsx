@@ -142,13 +142,18 @@ export default function Page() {
             >
               Igraj ponovo
             </button>
-            <Link
-              href="/kontakt"
-              className="flex-1 flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-xl font-bold transition-all hover:-translate-y-0.5 shadow-lg shadow-red-900/40"
-            >
-              <CalendarDays size={18} />
-              Zakažite termin
-            </Link>
+            <a
+                href="https://www.fresha.com/book-now/aku-nutri-zcaukxar/all-offer?share=true&pId=3049914"
+                
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Zakažite pregled i akupunkturu online"
+                aria-label="Zakažite pregled online preko platforme"
+                className="flex items-center justify-center gap-2 bg-rose-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-rose-700 transition-all duration-300 shadow-xl shadow-rose-600/30 hover:-translate-y-1"
+              >
+                <CalendarDays size={20} />
+                Zakažite online
+              </a>
           </div>
         </div>
       </main>
