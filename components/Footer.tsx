@@ -194,8 +194,8 @@ export default function Footer() {
                     {/* Društvene Mreže */}
                     <div className="flex items-center gap-4">
                         <a
-                            href="#"
-                            target="_blank"
+                            href="https://www.instagram.com/akupunktura_novisad_dr_kosarac/"
+                            target="_bank"
                             rel="noopener noreferrer"
                             aria-label="Instagram profil"
                             className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-slate-400 hover:bg-red-600 hover:text-white transition-all duration-300"
@@ -203,7 +203,7 @@ export default function Footer() {
                             <FaInstagram size={18} /> 
                         </a>
                         <a
-                            href="#"
+                            href="https://www.facebook.com/aleksandra.kosaracexjankovic"
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="Facebook profil"
