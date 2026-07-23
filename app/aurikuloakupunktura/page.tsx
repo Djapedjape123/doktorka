@@ -25,9 +25,8 @@ function FadeIn({ children, delay = "", className = "" }: { children: React.Reac
   return (
     <div
       ref={ref}
-      className={`transition-all duration-1000 ease-out transform ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-      } ${delay} ${className}`}
+      className={`transition-all duration-1000 ease-out transform ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+        } ${delay} ${className}`}
     >
       {children}
     </div>
@@ -36,10 +35,10 @@ function FadeIn({ children, delay = "", className = "" }: { children: React.Reac
 // ----------------------------------------------------------------------
 
 export default function AurikuloakupunkturaPage() {
-  
+
   // --- NIZ SVIH 7 SLIKA SA CLOUDINARY-JA ---
   // Ovde ćeš ubaciti svoje prave linkove kada ih postaviš na Cloud.
-   const sveSlike = [
+  const sveSlike = [
     "https://res.cloudinary.com/duomot4hp/image/upload/v1783254499/WhatsApp_Image_2026-07-05_at_13.29.41_6_y3crtq.jpg", // 0: Hero Slajder 1
     "https://res.cloudinary.com/duomot4hp/image/upload/v1783254507/WhatsApp_Image_2026-07-05_at_13.29.41_7_ymonqp.jpg", // 1: Hero Slajder 2
     "https://res.cloudinary.com/duomot4hp/image/upload/v1783254488/WhatsApp_Image_2026-07-05_at_13.29.41_5_oy4uvs.jpg", // 2: Slika uz Koncept (Mikrosistem)
@@ -86,14 +85,14 @@ export default function AurikuloakupunkturaPage() {
 
   return (
     <main className="w-full min-h-screen bg-rose-50/30 pb-0">
-      
+
       {/* 1. HERO SEKCIJA (Luksuzni Rose Gradijent) */}
       <section className="relative pt-36 pb-24 bg-gradient-to-b from-rose-950 to-slate-900 overflow-hidden">
         <div className="absolute inset-0 bg-rose-900/10 mix-blend-overlay"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-16">
-            
+
             {/* Leva strana - Tekst */}
             <div className="w-full lg:w-1/2">
               <FadeIn>
@@ -104,7 +103,7 @@ export default function AurikuloakupunkturaPage() {
                   Aurikuloakupunktura
                 </h1>
                 <div className="w-20 h-1 bg-rose-500 rounded-full mb-8"></div>
-                
+
                 <p className="text-xl text-rose-100 font-medium mb-6 leading-relaxed">
                   Celo ljudsko telo preslikano u malom.
                 </p>
@@ -123,11 +122,10 @@ export default function AurikuloakupunkturaPage() {
                       key={index}
                       src={slika}
                       alt={`Aurikuloakupunktura ${index + 1}`}
-                      className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-in-out ${
-                        index === trenutniHeroSlajd 
-                          ? "opacity-100 group-hover:scale-105" 
-                          : "opacity-0 scale-100" 
-                      }`}
+                      className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-in-out ${index === trenutniHeroSlajd
+                          ? "opacity-100 group-hover:scale-105"
+                          : "opacity-0 scale-100"
+                        }`}
                     />
                   ))}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none"></div>
@@ -137,9 +135,8 @@ export default function AurikuloakupunkturaPage() {
                       <button
                         key={index}
                         onClick={() => setTrenutniHeroSlajd(index)}
-                        className={`h-2 rounded-full transition-all duration-500 ${
-                          index === trenutniHeroSlajd ? "w-8 bg-rose-400" : "w-2 bg-white/50 hover:bg-white" 
-                        }`}
+                        className={`h-2 rounded-full transition-all duration-500 ${index === trenutniHeroSlajd ? "w-8 bg-rose-400" : "w-2 bg-white/50 hover:bg-white"
+                          }`}
                         aria-label={`Prikaži sliku ${index + 1}`}
                       />
                     ))}
@@ -158,7 +155,7 @@ export default function AurikuloakupunkturaPage() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col lg:flex-row-reverse items-center gap-16">
-            
+
             {/* Slika Koncepta (1 slika) */}
             <div className="w-full lg:w-1/2">
               <FadeIn>
@@ -175,14 +172,14 @@ export default function AurikuloakupunkturaPage() {
                   <Ear size={16} /> Susret meridijana
                 </div>
                 <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Mapa vašeg zdravlja u uhu</h2>
-                
+
                 <p className="text-slate-600 mb-6 leading-relaxed text-lg">
                   Stari kineski lekari su tvrdili da aurikula predstavlja mesto gde se susreću svi meridijani, gde se sastaju energije celog tela i gde postoji bliski odnos sa unutrašnjim organima.
                 </p>
                 <p className="text-slate-600 mb-8 leading-relaxed">
-                  To je jedinstveno mesto gde se stimulacijom tačno određenih akupunkturnih tačaka može direktno delovati na svaki organ ili funkciju pojedinog organa. 
+                  To je jedinstveno mesto gde se stimulacijom tačno određenih akupunkturnih tačaka može direktno delovati na svaki organ ili funkciju pojedinog organa.
                 </p>
-                
+
                 <div className="bg-rose-50 border-l-4 border-rose-500 p-5 rounded-r-2xl shadow-sm">
                   <p className="text-sm text-slate-700 font-medium">
                     Aurikuloakupunktura se može koristiti kao neverovatno snažna <strong>samostalna metoda</strong>, ali se u praksi vrlo često koristi i kao savršena <strong>dopuna telesnoj akupunkturi</strong> za maksimalne rezultate.
@@ -199,7 +196,7 @@ export default function AurikuloakupunkturaPage() {
       <section className="py-24 bg-slate-50 relative border-y border-slate-200">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
-            
+
             <div className="text-center mb-12">
               <span className="text-rose-600 font-bold uppercase tracking-widest text-sm mb-2 block">Iskustvo</span>
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
@@ -210,29 +207,28 @@ export default function AurikuloakupunkturaPage() {
 
             <div className="max-w-4xl mx-auto relative group">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-rose-200/50 border-4 border-white aspect-[4/5] sm:aspect-[4/3] md:aspect-[16/9] bg-white">
-                
+
                 {slikeGalerija.map((slika, index) => (
                   <img
                     key={index}
                     src={slika}
                     alt={`Proces aurikuloakupunkture ${index + 1}`}
-                    className={`absolute inset-0 w-full h-full object-contain p-2 md:p-4 transition-opacity duration-700 ease-in-out ${
-                      index === trenutniGalerijaSlajd ? "opacity-100 z-10" : "opacity-0 z-0"
-                    }`}
+                    className={`absolute inset-0 w-full h-full object-contain p-2 md:p-4 transition-opacity duration-700 ease-in-out ${index === trenutniGalerijaSlajd ? "opacity-100 z-10" : "opacity-0 z-0"
+                      }`}
                   />
                 ))}
 
                 {/* DUGME LEVO (Vidljivo na mobilnom) */}
-                <button 
+                <button
                   onClick={prethodniGalerijaSlajd}
                   className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white text-slate-800 p-2 md:p-3 rounded-full shadow-lg backdrop-blur-sm opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-300 hover:scale-110"
                   aria-label="Prethodna slika"
                 >
                   <ChevronLeft size={24} />
                 </button>
-                
+
                 {/* DUGME DESNO (Vidljivo na mobilnom) */}
-                <button 
+                <button
                   onClick={sledeciGalerijaSlajd}
                   className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white text-slate-800 p-2 md:p-3 rounded-full shadow-lg backdrop-blur-sm opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-300 hover:scale-110"
                   aria-label="Sledeća slika"
@@ -246,9 +242,8 @@ export default function AurikuloakupunkturaPage() {
                     <button
                       key={index}
                       onClick={() => setTrenutniGalerijaSlajd(index)}
-                      className={`h-2.5 rounded-full transition-all duration-300 shadow-sm ${
-                        index === trenutniGalerijaSlajd ? "w-8 bg-rose-500" : "w-2.5 bg-slate-300/80 md:bg-white/70 hover:bg-white" 
-                      }`}
+                      className={`h-2.5 rounded-full transition-all duration-300 shadow-sm ${index === trenutniGalerijaSlajd ? "w-8 bg-rose-500" : "w-2.5 bg-slate-300/80 md:bg-white/70 hover:bg-white"
+                        }`}
                       aria-label={`Prikaži sliku ${index + 1}`}
                     />
                   ))}
@@ -256,7 +251,7 @@ export default function AurikuloakupunkturaPage() {
 
               </div>
             </div>
-            
+
           </FadeIn>
         </div>
       </section>
@@ -292,11 +287,11 @@ export default function AurikuloakupunkturaPage() {
       {/* 5. POZIV NA AKCIJU (Parallax Slika na celom ekranu) */}
       <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden">
         {/* Parallax Slika */}
-        <div 
+        <div
           className="absolute inset-0 w-full h-full bg-cover bg-center bg-fixed"
           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2000&auto=format&fit=crop')" }}
         ></div>
-        
+
         <div className="absolute inset-0 bg-slate-900/70 backdrop-blur-[2px]"></div>
 
         <div className="relative z-10 text-center px-4 max-w-3xl mx-auto">
@@ -309,13 +304,18 @@ export default function AurikuloakupunkturaPage() {
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               {/* rezervqcije */}
-              <Link
-                href="/kontakt"
+              <a
+                href="https://www.fresha.com/book-now/aku-nutri-zcaukxar/all-offer?share=true&pId=3049914"
+                
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Zakažite pregled i akupunkturu online"
+                aria-label="Zakažite pregled online preko platforme"
                 className="flex items-center justify-center gap-2 bg-rose-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-rose-700 transition-all duration-300 shadow-xl shadow-rose-600/30 hover:-translate-y-1"
               >
                 <CalendarDays size={20} />
                 Zakažite online
-              </Link>
+              </a>
             </div>
           </FadeIn>
         </div>

@@ -107,8 +107,8 @@ export default function GuaShaPage() {
                                             src={slika}
                                             alt={`Gua Sha terapija ${index + 1}`}
                                             className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-in-out ${index === trenutnaSlika
-                                                    ? "opacity-100 group-hover:scale-105"
-                                                    : "opacity-0 scale-100"
+                                                ? "opacity-100 group-hover:scale-105"
+                                                : "opacity-0 scale-100"
                                                 }`}
                                         />
                                     ))}
@@ -122,8 +122,8 @@ export default function GuaShaPage() {
                                                 key={index}
                                                 onClick={() => setTrenutnaSlika(index)}
                                                 className={`h-2 rounded-full transition-all duration-500 ${index === trenutnaSlika
-                                                        ? "w-8 bg-red-500"
-                                                        : "w-2 bg-white/50 hover:bg-white"
+                                                    ? "w-8 bg-red-500"
+                                                    : "w-2 bg-white/50 hover:bg-white"
                                                     }`}
                                                 aria-label={`Prikaži sliku ${index + 1}`}
                                             />
@@ -311,13 +311,18 @@ export default function GuaShaPage() {
                             Zakažite Gua Sha tretman lica ili leđa i osetite razliku već nakon prve terapije.
                         </p>
                         <div className="flex flex-col sm:flex-row justify-center gap-4">
-                            <Link
-                                href="#"
-                                className="flex items-center justify-center gap-2 bg-red-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-red-700 transition-all duration-300 shadow-xl shadow-red-600/30 hover:-translate-y-1"
+                            <a
+                                href="https://www.fresha.com/book-now/aku-nutri-zcaukxar/all-offer?share=true&pId=3049914"
+
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                title="Zakažite pregled i akupunkturu online"
+                                aria-label="Zakažite pregled online preko platforme"
+                                className="flex items-center justify-center gap-2 bg-rose-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-rose-700 transition-all duration-300 shadow-xl shadow-rose-600/30 hover:-translate-y-1"
                             >
                                 <CalendarDays size={20} />
                                 Zakažite online
-                            </Link>
+                            </a>
                         </div>
                     </FadeIn>
                 </div>

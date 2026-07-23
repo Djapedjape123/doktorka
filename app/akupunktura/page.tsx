@@ -318,13 +318,18 @@ const serviceSchema = {
               Zakažite vaš tretman akupunkture i dozvolite svom telu da probudi sopstvene mehanizme isceljenja.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link
-                href="#"
-                className="flex items-center justify-center gap-2 bg-red-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-red-700 transition-all duration-300 shadow-xl shadow-red-600/30 hover:-translate-y-1"
+              <a
+                href="https://www.fresha.com/book-now/aku-nutri-zcaukxar/all-offer?share=true&pId=3049914"
+                
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Zakažite pregled i akupunkturu online"
+                aria-label="Zakažite pregled online preko platforme"
+                className="flex items-center justify-center gap-2 bg-rose-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-rose-700 transition-all duration-300 shadow-xl shadow-rose-600/30 hover:-translate-y-1"
               >
                 <CalendarDays size={20} />
                 Zakažite online
-              </Link>
+              </a>
             </div>
           </FadeIn>
         </div>

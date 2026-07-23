@@ -32,7 +32,7 @@ function FadeIn({ children, delay = "", className = "" }: { children: React.Reac
     </div>
   );
 }
- 
+
 // ----------------------------------------------------------------------
 
 export default function EstetskaAkupunkturaPage() {
@@ -331,13 +331,18 @@ export default function EstetskaAkupunkturaPage() {
               Zakažite svoj tretman estetske akupunkture i dozvolite svojoj koži da se podmladi iznutra.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link
-                href="/kontakt"
+              <a
+                href="https://www.fresha.com/book-now/aku-nutri-zcaukxar/all-offer?share=true&pId=3049914"
+
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Zakažite pregled i akupunkturu online"
+                aria-label="Zakažite pregled online preko platforme"
                 className="flex items-center justify-center gap-2 bg-rose-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-rose-700 transition-all duration-300 shadow-xl shadow-rose-600/30 hover:-translate-y-1"
               >
                 <CalendarDays size={20} />
                 Zakažite online
-              </Link>
+              </a>
             </div>
           </FadeIn>
         </div>
