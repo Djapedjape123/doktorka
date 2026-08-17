@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "sr_RS", // Govori Google-u i mrežama za koje je tržište
-    url: "/",
+    url: "https://www.akunutrinovisad.com/",
     title: "Dr Košarac | Akupunktura Novi Sad",
     description: "Tradicionalna kineska medicina u Novom Sadu. VedaPulse dijagnostika, akupunktura i estetski tretmani lica.",
     siteName: "Dr Košarac",
