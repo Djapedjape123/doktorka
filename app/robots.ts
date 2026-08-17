@@ -6,7 +6,8 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/_next/", "/private/", "/admin/"],
+        // Uklonjen /_next/ kako bi Google mogao da učita CSS i JS
+        disallow: ["/api/", "/private/", "/admin/"], 
       },
     ],
     sitemap: "https://www.akunutrinovisad.com/sitemap.xml",
