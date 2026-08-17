@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Kontakt i Zakazivanje",
   description: "Zakažite vaš termin za akupunkturu, ventuze i holističke tretmane. Kontaktirajte nas putem telefona, emaila ili online forme. Nalazimo se u Novom Sadu.",
   alternates: {
-    canonical: "https://www.drkosarac.rs/kontakt", // ZAMENI SA PRAVIM URL-om
+    canonical: "https://www.akunutrinovisad.com/kontakt", // ZAMENI SA PRAVIM URL-om
   },
 };
 

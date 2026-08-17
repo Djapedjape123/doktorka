@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Cenovnik Tretmana",
   description: "Pogledajte transparentne cene tretmana: akupunktura, ventuze, Gua Sha masaža i estetski paketi. Zakažite svoj termin u Novom Sadu.",
   alternates: {
-    canonical: "https://www.drkosarac.rs/cene", // OBAVEZNO ZAMENI KAD BUDEŠ ZNAO TAČAN DOMEN
+    canonical: "https://www.akunutrinovisad.com", // OBAVEZNO ZAMENI KAD BUDEŠ ZNAO TAČAN DOMEN
   },
 };
 

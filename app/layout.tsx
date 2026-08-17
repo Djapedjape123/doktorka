@@ -25,7 +25,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   // OBAVEZNO: ZAMENI SA PRAVIM DOMENOM
-  // metadataBase: new URL("https://www.drkosarac.rs"), PROMENI DOMEK KAD DODJE STVARNI
+  metadataBase: new URL("https://www.akunutrinovisad.com"),
   title: {
     default: "Dr Košarac | Akupunktura Novi Sad",
     // Template omogućava da druge stranice automatski dobiju nastavak.
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Dr Košarac | Akupunktura Novi Sad",
     description: "Tradicionalna kineska medicina u Novom Sadu.",
-    images: ["/og-image.jpg"],
+    images: ["https://res.cloudinary.com/duomot4hp/image/upload/v1782837198/ChatGPT_Image_30._%D1%98%D1%83%D0%BD_2026._18_40_41_cexbmh.png"],
   },
   robots: {
     index: true,
@@ -82,9 +82,9 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "MedicalClinic", // Specifičan tip za medicinske ordinacije
     "name": "Dr Košarac Akupunktura",
-    "image": "https://www.drkosarac.rs/og-image.jpg", // ZAMENI DOMEN
-    "@id": "https://www.drkosarac.rs",
-    "url": "https://www.drkosarac.rs",
+    "image": "https://www.akunutrinovisad.com/og-image.jpg", // ZAMENI DOMEN
+    "@id": "https://www.akunutrinovisad.com/",
+    "url": "https://www.akunutrinovisad.com/",
     "telephone": "+381638504589", // UNESI PRAVI BROJ
     "address": {
       "@type": "PostalAddress",
