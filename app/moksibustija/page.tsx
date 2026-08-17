@@ -287,8 +287,8 @@ export default function MoksibustijaPage() {
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <a
-                href="https://www.fresha.com/book-now/demo-verzija-a65yj618/services?lid=3126714&eid=5449989&oiid=sv%3A28189429&share=true&pId=3025278"
-                target="_blank"
+                 href="tel:0638504589"
+                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 bg-rose-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-rose-700 transition-all duration-300 shadow-xl shadow-rose-600/30 hover:-translate-y-1"
               >

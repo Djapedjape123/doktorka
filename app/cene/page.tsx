@@ -205,7 +205,7 @@ export default function Cene() {
               {/* CTA */}
               <div className="mt-8">
                 <a
-                  href="https://www.fresha.com/book-now/aku-nutri-zcaukxar/all-offer?share=true&pId=3049914"
+                   href="tel:0638504589"
                   target="_blank"
                   rel="noopener noreferrer"
                   title="Zakažite pregled i akupunkturu online preko Fresha platforme"

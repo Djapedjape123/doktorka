@@ -55,7 +55,7 @@ export default function Home() {
 
             {/* https://www.fresha.com/book-now/aku-nutri-zcaukxar/all-offer?share=true&pId=3049914*/}
             <a
-              href="https://www.fresha.com/book-now/aku-nutri-zcaukxar/all-offer?share=true&pId=3049914"
+               href="tel:0638504589"
               target="_blank"
               rel="noopener noreferrer"
               title="Zakažite pregled i akupunkturu online"
@@ -63,7 +63,7 @@ export default function Home() {
               className="group flex items-center justify-center gap-2 bg-red-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-red-700 transition-all duration-300 shadow-xl hover:shadow-red-600/50 hover:-translate-y-1"
             >
               <CalendarDays size={20} className="group-hover:scale-110 transition-transform" />
-              Zakažite online
+              Zakažite tretman
             </a>
 
             {/* Sekundarno dugme (Formatiran broj u intl format + aria/title) */}

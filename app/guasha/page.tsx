@@ -312,8 +312,7 @@ export default function GuaShaPage() {
                         </p>
                         <div className="flex flex-col sm:flex-row justify-center gap-4">
                             <a
-                                href="https://www.fresha.com/book-now/aku-nutri-zcaukxar/all-offer?share=true&pId=3049914"
-
+                                 href="tel:0638504589"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 title="Zakažite pregled i akupunkturu online"
@@ -321,7 +320,7 @@ export default function GuaShaPage() {
                                 className="flex items-center justify-center gap-2 bg-rose-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-rose-700 transition-all duration-300 shadow-xl shadow-rose-600/30 hover:-translate-y-1"
                             >
                                 <CalendarDays size={20} />
-                                Zakažite online
+                                Zakažite tretman
                             </a>
                         </div>
                     </FadeIn>
