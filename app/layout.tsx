@@ -16,36 +16,40 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// Viewport se u novijim Next.js verzijama odvaja od Metadata objekta
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#ffffff", // Prilagodi glavnoj boji brenda
+  themeColor: "#ffffff",
 };
 
 export const metadata: Metadata = {
-  // OBAVEZNO: ZAMENI SA PRAVIM DOMENOM
   metadataBase: new URL("https://www.akunutrinovisad.com"),
   title: {
     default: "Dr Košarac | Akupunktura Novi Sad",
-    // Template omogućava da druge stranice automatski dobiju nastavak.
-    // Npr. na stranici usluga staviš samo title: "Ventuze", a Next generiše: "Ventuze | Dr Košarac"
     template: "%s | Dr Košarac", 
   },
   description: "Tradicionalna kineska medicina u Novom Sadu. VedaPulse dijagnostika, akupunktura, ventuze i estetski tretmani lica.",
   keywords: ["akupunktura Novi Sad", "kineska medicina", "gua sha","moksibustija", "ventuze", "estetska akupunktura", "dr Košarac"],
   authors: [{ name: "Dr Košarac" }],
   creator: "Dr Košarac",
+
+  // ⬇️ OVDE JE DODAT FAVICON / ICONS ⬇️
+  icons: {
+    icon: "/dok.png",
+    shortcut: "/dok.png",
+    apple: "/dok.png",
+  },
+
   openGraph: {
     type: "website",
-    locale: "sr_RS", // Govori Google-u i mrežama za koje je tržište
+    locale: "sr_RS",
     url: "https://www.akunutrinovisad.com/",
     title: "Dr Košarac | Akupunktura Novi Sad",
     description: "Tradicionalna kineska medicina u Novom Sadu. VedaPulse dijagnostika, akupunktura i estetski tretmani lica.",
     siteName: "Dr Košarac",
     images: [
       {
-        url: "https://res.cloudinary.com/duomot4hp/image/upload/v1782837198/ChatGPT_Image_30._%D1%98%D1%83%D0%BD_2026._18_40_41_cexbmh.png", // Napravi sliku 1200x630px i stavi u public folder
+        url: "https://res.cloudinary.com/duomot4hp/image/upload/v1782837198/ChatGPT_Image_30._%D1%98%D1%83%D0%BD_2026._18_40_41_cexbmh.png",
         width: 1200,
         height: 630,
         alt: "Dr Košarac Akupunktura Novi Sad",
@@ -76,32 +80,30 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // JSON-LD Schema za lokalni biznis (Lokalni SEO)
-  // OVO JE KRITIČNO za Google Maps i lokalne pretrage u Novom Sadu
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "MedicalClinic", // Specifičan tip za medicinske ordinacije
+    "@type": "MedicalClinic",
     "name": "Dr Košarac Akupunktura",
-    "image": "https://www.akunutrinovisad.com/og-image.jpg", // ZAMENI DOMEN
+    "image": "https://www.akunutrinovisad.com/dok.png",
     "@id": "https://www.akunutrinovisad.com/",
     "url": "https://www.akunutrinovisad.com/",
-    "telephone": "+381638504589", // UNESI PRAVI BROJ
+    "telephone": "+381638504589",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Hadzi Ruvimova", // UNESI ADRESU
+      "streetAddress": "Hadzi Ruvimova",
       "addressLocality": "Novi Sad",
       "postalCode": "21000",
       "addressCountry": "RS"
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 45.2396, // UNESI TAČNE KOORDINATE IZ GOOGLE MAPS
+      "latitude": 45.2396,
       "longitude": 19.8227
     },
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "09:00", // PRILAGODI RADNO VREME
+      "opens": "09:00",
       "closes": "17:00"
     }
   };
@@ -109,7 +111,6 @@ export default function RootLayout({
   return (
     <html lang="sr">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white text-medical-dark flex flex-col min-h-screen`}>
-        {/* Ubacivanje strukturiranih podataka u DOM */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -117,7 +118,6 @@ export default function RootLayout({
         
         <Navbar />
         <SplashScreen />
-        {/* main je seo wrapper za glavni sadrzaj, dodao flex-grow da footer uvek bude na dnu */}
         <main className="flex-grow">{children}</main>
         <WhatsAppButton />
         <Footer />
