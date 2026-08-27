@@ -14,13 +14,14 @@ export default function Home() {
       >
         {/* Optimizovan Cloudinary Video */}
         {/* KRITIČNO ZA SEO: Dodat je 'poster' atribut za brži LCP (Largest Contentful Paint) */}
+       {/* 1. MOBILNI VIDEO (Uspravan) - Prikazuje se samo na malim ekranima */}
         <video
           autoPlay
           loop
           muted
           playsInline
-          poster="/hero-video-poster.jpg" // OBAVEZNO: Dodaj sliku prvog frejma videa u public folder
-          className="absolute top-0 left-0 w-full h-full min-h-full object-cover z-0 block"
+          poster="/hero-video-poster.jpg"
+          className="absolute top-0 left-0 w-full h-full object-cover z-0 block md:hidden"
         >
           <source
             src="https://res.cloudinary.com/duomot4hp/video/upload/v1787858732/WhatsApp_Video_2026-08-27_at_20.19.14_qpklcs.mp4"
@@ -28,8 +29,23 @@ export default function Home() {
           />
         </video>
 
-        {/* Overlay */}
-        <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-10"></div>
+        {/* 2. DESKTOP VIDEO (Vodoravan) - Prikazuje se samo na kompjuterima/tabletima */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster="/hero-video-poster-desktop.jpg"
+          className="absolute top-0 left-0 w-full h-full object-cover z-0 hidden md:block"
+        >
+          <source
+            src="https://res.cloudinary.com/duomot4hp/video/upload/v1787863020/WhatsApp_Video_2026-08-27_at_22.33.13_q1valc.mp4" // <--- OVDE UBACI NOVI VODORAVNI VIDEO
+            type="video/mp4"
+          />
+        </video>
+
+        {/* 3. Zatamnjenje (Overlay) */}
+        <div className="absolute inset-0 bg-black/50 z-10"></div>
 
         {/* Glavni sadržaj preko videa */}
         <div className="relative z-20 text-center px-4 max-w-4xl mx-auto flex flex-col items-center mt-10">
