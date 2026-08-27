@@ -36,15 +36,15 @@ export default function Footer() {
                             </div>
                             <div className="flex flex-col">
                                 <span className="text-xl font-bold tracking-tight text-white group-hover:text-red-400 transition-colors">
-                                    Dr Košarac
+                                    Dr Aleksandra Košarac
                                 </span>
                                 <span className="text-xs uppercase tracking-widest text-red-500 font-bold">
-                                    Kineska Medicina
+                                    Kineska tradicionalna medicina
                                 </span>
                             </div>
                         </Link>
                         <p className="text-sm text-slate-400 leading-relaxed mb-6">
-                            Spoj tradicije duge 3000 godina i savremene integrativne medicine. Pronađite svoj unutrašnji balans i pokrenite proces prirodnog samoisceljenja.
+                            Spoj tradicije duge vise od 3000 godina i savremene integrativne medicine. Pronađite svoj unutrašnji balans i pokrenite proces prirodnog samoisceljenja.
                         </p>
                     </div>
 

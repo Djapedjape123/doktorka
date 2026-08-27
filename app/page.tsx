@@ -23,7 +23,7 @@ export default function Home() {
           className="absolute top-0 left-0 w-full h-full min-h-full object-cover z-0 block"
         >
           <source
-            src="https://res.cloudinary.com/duomot4hp/video/upload/q_auto,f_auto/v1782809340/8313072-hd_1920_1080_30fps_kiepbt.mp4"
+            src="https://res.cloudinary.com/duomot4hp/video/upload/v1787858732/WhatsApp_Video_2026-08-27_at_20.19.14_qpklcs.mp4"
             type="video/mp4"
           />
         </video>
@@ -36,7 +36,7 @@ export default function Home() {
 
           {/* SEO Optimizovan tekst iznad naslova (sadrži lokalne ključne reči) */}
           <span className="text-red-400 font-semibold tracking-widest uppercase mb-4 drop-shadow-md">
-            Kineska medicina u Novom Sadu
+            Kineska tradicionalna medicina u Novom Sadu
           </span>
 
           {/* H1 OBAVEZNO mora da sadrži glavnu ključnu reč (Akupunktura). */}

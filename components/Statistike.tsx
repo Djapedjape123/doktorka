@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const stats = [
   {
@@ -12,10 +12,10 @@ const stats = [
     broj: 5,
     suffix: "+",
     label: "Godina akupunkture",
-    opis: "Licencovani akupunkturolog",
+    opis: "Licencirani akupunkturolog",
   },
   {
-    broj: 200,
+    broj: 300,
     suffix: "+",
     label: "Zadovoljnih pacijenata",
     opis: "I taj broj raste svaki dan",
@@ -24,7 +24,17 @@ const stats = [
     broj: 6,
     suffix: "",
     label: "Holistička tretmana",
-    opis: "Akupunktura, Estesta akupunktura, Ventuze, Gua Sha, Moksibustija, Akupuntura Uha",
+    opis: (
+      <>
+        Akupunktura, Estetska akupunktura,
+        <br />
+        Ventuze,
+        <br />
+        Gua Sha,
+        <br />
+        Moksibustija, Ušna akupunktura
+      </>
+    ),
   },
 ];
 
@@ -61,7 +71,7 @@ function StatCard({
   broj: number;
   suffix: string;
   label: string;
-  opis: string;
+  opis: React.ReactNode; // Promenjeno u ReactNode da bi prihvatilo HTML tagove
   isActive: boolean;
   index: number;
 }) {

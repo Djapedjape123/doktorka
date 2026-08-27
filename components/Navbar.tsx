@@ -36,13 +36,13 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`flex justify-between items-center transition-all duration-300 ${isScrolled ? "h-20" : "h-24"}`}>
           
-          {/* LOGO SEKCIJA */}
+         
           <Link href="/" className="flex flex-col">
-            <span className={`text-xl font-bold tracking-tight transition-colors duration-300 ${isScrolled ? "text-medical-dark" : "text-red-500"}`}>
-              Dr Košarac
+            <span className={`text-base sm:text-lg md:text-xl font-bold tracking-tight transition-colors duration-300 ${isScrolled ? "text-medical-dark" : "text-red-500"}`}>
+             dr Aleksandra Janković Košarac
             </span>
-            <span className="text-xs uppercase tracking-widest text-red-500 font-bold -mt-1">
-               Kineska Medicina
+            <span className="text-[10px] sm:text-xs uppercase tracking-widest text-red-500 font-bold -mt-1">
+               Kineska tradicionalna medicina
             </span>
           </Link>
 
