@@ -36,7 +36,7 @@ export default function Footer() {
                             </div>
                             <div className="flex flex-col">
                                 <span className="text-xl font-bold tracking-tight text-white group-hover:text-red-400 transition-colors">
-                                    Dr Aleksandra Košarac
+                                    dr Aleksandra <br /> Jankovic-Košarac
                                 </span>
                                 <span className="text-xs uppercase tracking-widest text-red-500 font-bold">
                                     Kineska tradicionalna medicina
