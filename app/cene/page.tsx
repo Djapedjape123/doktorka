@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Clock, CalendarDays, Sparkles, Layers } from "lucide-react";
-import Link from "next/link";
+
 
 const pojedinacneTerapije = [
   { naziv: "Akupunktura", cena: "2.500 din", trajanje: "30 min" },
