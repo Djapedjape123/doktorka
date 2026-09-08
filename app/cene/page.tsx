@@ -5,9 +5,9 @@ import { Clock, CalendarDays, Sparkles, Layers } from "lucide-react";
 import Link from "next/link";
 
 const pojedinacneTerapije = [
-  { naziv: "Akupunktura", cena: "2.500 din", trajanje: "20–30 min" },
-  { naziv: "Aurikuloakupunktura", opis: "Ušna akupunktura — lepljenje iglica", cena: "2.000 din", trajanje: "20–30 min" },
-  { naziv: "Ventuze", opis: "Cupping, vakuum čaše", cena: "2.000 din", trajanje: "20 min" },
+  { naziv: "Akupunktura", cena: "2.500 din", trajanje: "30 min" },
+  { naziv: "Aurikuloakupunktura", opis: "Ušna akupunktura — lepljenje iglica", cena: "2.000 din", trajanje: "15 min" },
+  { naziv: "Ventuze", opis: "Cupping, vakuum čaše", cena: "2.000 din", trajanje: "30 min" },
   { naziv: "Moksibustija", opis: "Toplotna terapija", cena: "1.500 din", trajanje: "10–20 min" },
   { naziv: "Gua Sha masaža", opis: "Tradicionalna tehnika grebanja", cena: "1.500 din", trajanje: "~10 min" },
 ];
