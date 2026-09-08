@@ -136,7 +136,7 @@ export default function Page() {
                                     </div>
                                 </a>
                                 <a
-                                    href="https://maps.google.com/?q=Hadži+Ruvimova+Novi+Sad"
+                                    href=""
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     title="Pronađite nas na Google Mapama"
@@ -148,7 +148,7 @@ export default function Page() {
                                     <div>
                                         <span className="block text-sm text-slate-500 mb-1">Adresa</span>
                                         <span className="block font-semibold text-medical-dark group-hover:text-red-600 transition-colors">
-                                            Novi Sad, Hadži Ruvimova
+                                            Novi Sad
                                         </span>
                                     </div>
                                 </a>
