@@ -142,7 +142,7 @@ export default function Footer() {
                                 className="flex items-start gap-3 hover:text-red-400 transition-colors group"
                             >
                                 <MapPin className="text-red-500 shrink-0 mt-1" size={18} />
-                                <span className="text-sm">Hadži Ruvimova<br />Novi Sad, Srbija</span>
+                                <span className="text-sm">Novi Sad, Srbija</span>
                             </a>
 
                             <a
