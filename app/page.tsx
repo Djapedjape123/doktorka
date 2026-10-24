@@ -2,6 +2,13 @@ import Link from "next/link";
 import { CalendarDays, Info } from "lucide-react";
 import Omeni from "@/components/Omeni";
 import Statistike from "@/components/Statistike";
+import { buildMetadata, HOME_DESCRIPTION, HOME_TITLE } from "@/lib/seo";
+
+export const metadata = buildMetadata({
+  title: HOME_TITLE,
+  description: HOME_DESCRIPTION,
+  path: "/",
+});
 
 export default function Home() {
   return (
@@ -51,13 +58,13 @@ export default function Home() {
         <div className="relative z-20 text-center px-4 max-w-4xl mx-auto flex flex-col items-center mt-10">
 
           {/* SEO Optimizovan tekst iznad naslova (sadrži lokalne ključne reči) */}
-          <span className="text-red-400 font-semibold tracking-widest uppercase mb-4 drop-shadow-md">
+          {/* <span className="text-red-400 font-semibold tracking-widest uppercase mb-4 drop-shadow-md">
             Kineska tradicionalna medicina u Novom Sadu
-          </span>
+          </span> */}
 
           {/* H1 OBAVEZNO mora da sadrži glavnu ključnu reč (Akupunktura). */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
-            Akupunktura i holistički pristup <br className="hidden md:block" /> vašem zdravlju
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight text-balance drop-shadow-lg">
+            Akupunktura u Novom Sadu – holistički pristup vašem zdravlju
           </h1>
 
           {/* U paragraf ubačena reč "VedaPulse" koja se traži u niši */}

@@ -7,6 +7,8 @@ import { Phone, MapPin, Mail } from "lucide-react";
 // 2. Dodajemo brend ikonice iz react-icons (koju već imaš)
 import { FaInstagram, FaFacebook } from "react-icons/fa";
 
+import { DRUSTVENE_MREZE, KONTAKT } from "@/lib/site";
+
 export default function Footer() {
     const tekućaGodina = new Date().getFullYear();
 
@@ -44,15 +46,15 @@ export default function Footer() {
                             </div>
                         </Link>
                         <p className="text-sm text-slate-400 leading-relaxed mb-6">
-                            Spoj tradicije duge vise od 3000 godina i savremene integrativne medicine. Pronađite svoj unutrašnji balans i pokrenite proces prirodnog samoisceljenja.
+                            Spoj tradicije duge više od 3000 godina i savremene integrativne medicine. Pronađite svoj unutrašnji balans i pokrenite proces prirodnog samoisceljenja.
                         </p>
                     </div>
 
                     {/* KOLONA 2: Brzi Linkovi (Navigacija) */}
                     <div>
-                        <h3 className="text-white font-bold tracking-wider uppercase mb-6 flex items-center gap-2">
+                        <p className="text-white font-bold tracking-wider uppercase mb-6 flex items-center gap-2">
                             <span className="w-4 h-1 bg-red-600 rounded-full"></span> Brzi Linkovi
-                        </h3>
+                        </p>
                         <ul className="space-y-3">
                             <li>
                                 <Link href="/" className="hover:text-red-400 transition-colors inline-block relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 hover:after:w-full after:bg-red-400 after:transition-all after:duration-300">
@@ -84,9 +86,9 @@ export default function Footer() {
 
                     {/* KOLONA 3: Naše Usluge */}
                     <div>
-                        <h3 className="text-white font-bold tracking-wider uppercase mb-6 flex items-center gap-2">
+                        <p className="text-white font-bold tracking-wider uppercase mb-6 flex items-center gap-2">
                             <span className="w-4 h-1 bg-red-600 rounded-full"></span> Usluge
-                        </h3>
+                        </p>
                         <ul className="space-y-3">
                             <li>
                                 <Link href="/akupunktura" className="hover:text-red-400 transition-colors flex items-center gap-2 group">
@@ -130,35 +132,35 @@ export default function Footer() {
 
                     {/* KOLONA 4: Kontakt Informacije */}
                     <div>
-                        <h3 className="text-white font-bold tracking-wider uppercase mb-6 flex items-center gap-2">
+                        <p className="text-white font-bold tracking-wider uppercase mb-6 flex items-center gap-2">
                             <span className="w-4 h-1 bg-red-600 rounded-full"></span> Kontakt
-                        </h3>
+                        </p>
 
                         <div className="space-y-4">
                             <a
-                                href="https://maps.google.com/?q=Hadži+Ruvimova+Novi+Sad"
+                                href={KONTAKT.mapaLink}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex items-start gap-3 hover:text-red-400 transition-colors group"
                             >
                                 <MapPin className="text-red-500 shrink-0 mt-1" size={18} />
-                                <span className="text-sm">Novi Sad, Srbija</span>
+                                <span className="text-sm">{KONTAKT.adresaTekst}</span>
                             </a>
 
                             <a
-                                href="tel:0638504589"
+                                href={KONTAKT.telefonHref}
                                 className="flex items-center gap-3 hover:text-red-400 transition-colors group"
                             >
                                 <Phone className="text-red-500 shrink-0" size={18} />
-                                <span className="text-sm font-semibold tracking-wide">063 850 4589</span>
+                                <span className="text-sm font-semibold tracking-wide">{KONTAKT.telefon}</span>
                             </a>
 
                             <a
-                                href="mailto:ajkosarac@gmail.com"
+                                href={`mailto:${KONTAKT.email}`}
                                 className="flex items-center gap-3 hover:text-red-400 transition-colors group"
                             >
                                 <Mail className="text-red-500 shrink-0" size={18} />
-                                <span className="text-sm">ajkosarac@gmail.com</span>
+                                <span className="text-sm">{KONTAKT.email}</span>
                             </a>
                         </div>
 
@@ -194,8 +196,8 @@ export default function Footer() {
                     {/* Društvene Mreže */}
                     <div className="flex items-center gap-4">
                         <a
-                            href="https://www.instagram.com/akupunktura_novisad_dr_kosarac/"
-                            target="_bank"
+                            href={DRUSTVENE_MREZE.instagram}
+                            target="_blank"
                             rel="noopener noreferrer"
                             aria-label="Instagram profil"
                             className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-slate-400 hover:bg-red-600 hover:text-white transition-all duration-300"
@@ -203,7 +205,7 @@ export default function Footer() {
                             <FaInstagram size={18} /> 
                         </a>
                         <a
-                            href="https://www.facebook.com/aleksandra.kosaracexjankovic"
+                            href={DRUSTVENE_MREZE.facebook}
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="Facebook profil"

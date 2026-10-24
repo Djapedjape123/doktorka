@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "check:seo": "node --experimental-strip-types --no-warnings scripts/check-seo.mjs"
   },
   "dependencies": {
     "lucide-react": "^1.21.0",

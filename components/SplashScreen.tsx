@@ -24,8 +24,9 @@ export default function SplashScreen() {
         >
             <Image
                 src="https://res.cloudinary.com/duomot4hp/image/upload/v1782837198/ChatGPT_Image_30._%D1%98%D1%83%D0%BD_2026._18_40_41_cexbmh.png"
-                alt="Logo"
+                alt="Dr Košarac – akupunktura Novi Sad logo"
                 fill
+                sizes="(max-width: 1024px) 90vw, 50vw"
                 loading="eager"
                 className="w-full h-full object-contain  sm:p-12 md:p-16"
             />

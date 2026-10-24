@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 
 export default function Omeni() {
@@ -39,10 +40,12 @@ export default function Omeni() {
           >
             <div className="relative w-full aspect-[4/5] max-w-md mx-auto md:max-w-none rounded-2xl overflow-hidden shadow-2xl">
               {/* Privremena slika dok doktorka ne pošalje svoju */}
-              <img
+              <Image
                 src="https://res.cloudinary.com/duomot4hp/image/upload/v1782817691/ChatGPT_Image_30._%D1%98%D1%83%D0%BD_2026._13_16_10_jsy4zc.png"
-                alt="Dr Košarac portret"
-                className="object-cover w-full h-full"
+                alt="Portret dr Aleksandre Janković Košarac, doktora stomatologije i akupunkturologa u Novom Sadu"
+                fill
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="object-cover"
               />
               
               {/* Dizajnerski detalj (crveni ukrasni okvir iza slike) */}

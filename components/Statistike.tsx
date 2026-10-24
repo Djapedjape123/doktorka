@@ -39,10 +39,13 @@ const stats = [
 ];
 
 function useCounter(target: number, isActive: boolean, duration = 1800) {
-  const [count, setCount] = useState(0);
+  // Početna vrednost je konačan broj, pa server-renderovani HTML i prvi client render
+  // sadrže prave vrednosti. Animacija od 0 kreće tek na klijentu, kad kartica uđe u viewport.
+  const [count, setCount] = useState(target);
 
   useEffect(() => {
     if (!isActive) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     let start = 0;
     const step = target / (duration / 16);
     const timer = setInterval(() => {
@@ -138,11 +141,11 @@ export default function Statistike() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          <span className="inline-flex items-center gap-3 text-xs font-bold text-slate-400 uppercase tracking-[0.2em]">
+          <h2 className="inline-flex items-center gap-3 text-xs font-bold text-slate-400 uppercase tracking-[0.2em]">
             <span className="w-8 h-px bg-slate-300" />
             Iskustvo koje govori
             <span className="w-8 h-px bg-slate-300" />
-          </span>
+          </h2>
         </div>
 
         {/* Grid sa brojevima */}

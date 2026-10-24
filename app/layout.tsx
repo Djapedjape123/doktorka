@@ -5,6 +5,9 @@ import Navbar from "@/components/Navbar";
 import SplashScreen from "@/components/SplashScreen";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import Footer from "@/components/Footer";
+import LocalBusinessSchema from "@/components/LocalBusinessSchema";
+import { HOME_DESCRIPTION, HOME_TITLE } from "@/lib/seo";
+import { OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,18 +25,17 @@ export const viewport: Viewport = {
   themeColor: "#ffffff",
 };
 
+// Svaka ruta ima svoj metadata preko buildMetadata() u lib/seo.ts.
+// Ovde su samo podrazumevane vrednosti. Namerno nema title.template (naslovi su već puni),
+// openGraph.url ni alternates.canonical (bili bi nasleđeni i pogrešni na svim stranicama),
+// a meta keywords Google ignoriše.
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.akunutrinovisad.com"),
-  title: {
-    default: "Dr Košarac | Akupunktura Novi Sad",
-    template: "%s | Dr Košarac", 
-  },
-  description: "Tradicionalna kineska medicina u Novom Sadu. VedaPulse dijagnostika, akupunktura, ventuze i estetski tretmani lica.",
-  keywords: ["akupunktura Novi Sad", "kineska medicina", "gua sha","moksibustija", "ventuze", "estetska akupunktura", "dr Košarac"],
-  authors: [{ name: "Dr Košarac" }],
-  creator: "Dr Košarac",
+  metadataBase: new URL(SITE_URL),
+  title: HOME_TITLE,
+  description: HOME_DESCRIPTION,
+  authors: [{ name: SITE_NAME }],
+  creator: SITE_NAME,
 
-  // ⬇️ OVDE JE DODAT FAVICON / ICONS ⬇️
   icons: {
     icon: "/dok.png",
     shortcut: "/dok.png",
@@ -43,24 +45,16 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "sr_RS",
-    url: "https://www.akunutrinovisad.com/",
-    title: "Dr Košarac | Akupunktura Novi Sad",
-    description: "Tradicionalna kineska medicina u Novom Sadu. VedaPulse dijagnostika, akupunktura i estetski tretmani lica.",
-    siteName: "Dr Košarac",
-    images: [
-      {
-        url: "https://res.cloudinary.com/duomot4hp/image/upload/v1782837198/ChatGPT_Image_30._%D1%98%D1%83%D0%BD_2026._18_40_41_cexbmh.png",
-        width: 1200,
-        height: 630,
-        alt: "Dr Košarac Akupunktura Novi Sad",
-      },
-    ],
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
+    siteName: SITE_NAME,
+    images: [OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dr Košarac | Akupunktura Novi Sad",
-    description: "Tradicionalna kineska medicina u Novom Sadu.",
-    images: ["https://res.cloudinary.com/duomot4hp/image/upload/v1782837198/ChatGPT_Image_30._%D1%98%D1%83%D0%BD_2026._18_40_41_cexbmh.png"],
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
+    images: [OG_IMAGE.url],
   },
   robots: {
     index: true,
@@ -80,42 +74,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "MedicalClinic",
-    "name": "Dr Košarac Akupunktura",
-    "image": "https://www.akunutrinovisad.com/dok.png",
-    "@id": "https://www.akunutrinovisad.com/",
-    "url": "https://www.akunutrinovisad.com/",
-    "telephone": "+381638504589",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Hadzi Ruvimova",
-      "addressLocality": "Novi Sad",
-      "postalCode": "21000",
-      "addressCountry": "RS"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 45.2396,
-      "longitude": 19.8227
-    },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "09:00",
-      "closes": "17:00"
-    }
-  };
-
   return (
     <html lang="sr">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white text-medical-dark flex flex-col min-h-screen`}>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-        
+        <LocalBusinessSchema />
+
         <Navbar />
         <SplashScreen />
         <main className="flex-grow">{children}</main>
